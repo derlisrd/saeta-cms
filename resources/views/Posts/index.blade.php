@@ -6,8 +6,11 @@
 @section('container')
 
     <div class="row">
-        <div class="col-12">
-            <h3>Todos los artículos</h3>
+        <div class="col-12 col-md-8">
+            <h4>Artículos</h4>
+        </div>
+        <div class="col-12 col-md-4">
+            <a href="{{ route('posts.create') }}" class="btn btn-outline-success my-3">Agregar</a>
         </div>
         <div class="col-12">
 
@@ -22,16 +25,18 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($posts as $p)
                     <tr>
-                        <td>ID</td>
-                        <td>PELICULAS </td>
-                        <td>pelis</td>
-                        <td>derlis</td>
+                        <td>{{ $p->id }}</td>
+                        <td>{{ $p->title }} </td>
+                        <td>{{ $p->category->title }}</td>
+                        <td>{{ $p->author->name }}</td>
                         <td>
-                            <a href="#" class="btn btn-info">Editar</a>
-                            <a href="#" class="btn btn-danger">Borrar</a>
+                            <a href="#" class="btn btn-outline-info">Editar</a>
+                            <a href="#" class="btn btn-outline-danger">Borrar</a>
                         </td>
                     </tr>
+                    @endforeach
                 </tbody>
                 <tfoot>
                     <tr class="table-dark">

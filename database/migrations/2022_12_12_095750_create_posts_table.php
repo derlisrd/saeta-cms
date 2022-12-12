@@ -25,8 +25,8 @@ class CreatePostsTable extends Migration
             $table->longText('text')->nullable();
             $table->string('type');
             $table->tinyInteger('status');
-            $table->integer('menu_order');
-            $table->tinyInteger('comment_status')->default(1);
+            $table->integer('menu_order')->nullable();
+            $table->boolean('comment_status')->default(1);
             $table->string('password')->nullable();
             $table->timestamps();
         });
