@@ -13,6 +13,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;600&family=Roboto:wght@100&display=swap" rel="stylesheet">
+
+
+    <link href="https://bootswatch.com/5/sketchy/bootstrap.min.css" />
+
     <link href="{{ URL('assets/css/style.css') }}" rel="stylesheet">
 </head>
 <body>

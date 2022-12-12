@@ -10,7 +10,7 @@
             <h4>Categorías</h4>
         </div>
         <div class="col-12 col-md-4">
-            <a href="{{ route('posts.create') }}" class="btn btn-outline-success my-3">Agregar</a>
+            <a href="{{ route('posts.category.create') }}" class="btn btn-outline-success my-3">Agregar</a>
         </div>
         <div class="col-12">
 
