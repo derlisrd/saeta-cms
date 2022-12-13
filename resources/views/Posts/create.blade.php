@@ -3,6 +3,11 @@
 
 @section('title', 'Nuevo Post')
 
+@section('styles')
+<link rel="stylesheet" href="{{asset('vendor/laraberg/css/laraberg.css')}}">
+@endsection
+
+
 @section('container')
 
     <form action="{{ route('posts.store') }}" method="post">
@@ -26,7 +31,7 @@
 
                 <div class="col-12 mt-4">
 
-                    <textarea id="editor" name="text" rows="20"></textarea>
+                    <textarea id="editor1" hidden name="text" ></textarea>
 
                 </div>
 
@@ -109,34 +114,21 @@
 @endsection
 
 @section('scripts')
-    <script src="{{ URL('assets/editor/tinymce.min.js') }}" referrerpolicy="origin"></script>
 
-    <script>
-        tinymce.init({
-            selector: '#editor',
-            theme: "silver",
+<script src="https://unpkg.com/react@16.8.6/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@16.8.6/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/moment@2.24.0/min/moment.min.js"></script>
 
-            mobile: {
-                menubar: true,
-                plugins: 'autosave lists autolink link',
-            },
+<script src="{{ asset('vendor/laraberg/js/laraberg.js') }}"></script>
 
-            menubar: false,
-            height: '80vh',
-            branding: false,
-            language: 'es',
-            relative_urls: false,
-            remove_script_host: false,
-            toolbar: 'undo redo | formatselect | fontsizeselect | outdent indent | numlist bullist | bold italic backcolor forecolor removeformat  | alignleft aligncenter alignright alignjustify | visualblocks |  media |  link image imagetools code preview | fullscreen responsivefilemanager',
+<script>
+    Laraberg.init('editor1', { maxHeight: '500px' })
+</script>
+<script>
+    function changeslug(e){
+        let title = e.value.replace(/\s+/g, '-').toLowerCase();
+        document.getElementById('slug').value = title
+    }
+</script>
 
-            image_advtab: true,
-            plugins: 'link image code wordcount imagetools media lists preview quickbars  visualblocks fullscreen importcss '
-        });
-    </script>
-    <script>
-        function changeslug(e){
-            let title = e.value.replace(/\s+/g, '-').toLowerCase();
-            document.getElementById('slug').value = title
-        }
-    </script>
 @endsection
