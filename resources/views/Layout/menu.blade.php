@@ -35,7 +35,6 @@
                 <a href="{{ route('posts.category') }}" class="dashboard-nav-dropdown-item {{ request()->routeIs('posts.category') ? 'active' : '' }}">
                     <i class="fas fa-marker mx-1"></i>Categorías
                 </a>
-                <a href="#" class="dashboard-nav-dropdown-item"><i class="fas fa-pager mx-1"></i>Páginas</a>
             </div>
         </div>
 
@@ -57,7 +56,10 @@
                     class="dashboard-nav-dropdown-item"> Projections</a>
             </div>
         </div>
-        <a href="#" class="dashboard-nav-item"><i class="fas fa-cogs"></i> Settings </a><a href="#"
+
+        <a href="{{ route('menu') }}" class="dashboard-nav-item"><i class="fa fa-traffic-light"></i> Menu </a>
+        <a href="#" class="dashboard-nav-item"><i class="fas fa-cogs"></i> Config. </a>
+        <a href="#"
             class="dashboard-nav-item"><i class="fas fa-user"></i> Profile </a>
         <div class="nav-item-divider"></div>
         <a href="{{ route('logout') }}" class="dashboard-nav-item"><i class="fas fa-sign-out-alt"></i> Logout </a>
