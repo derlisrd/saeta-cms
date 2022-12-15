@@ -26,6 +26,7 @@ Route::group(['prefix'=>'admin','middleware'=>['auth']],function(){
         Route::post('/store',[PostsController::class,'store'])->name('posts.store');
         Route::get('/category',[PostsController::class,'category'])->name('posts.category');
         Route::get('/category/create',[CategoryController::class,'create'])->name('posts.category.create');
+        Route::post('/category/store',[CategoryController::class,'store'])->name('posts.category.store');
     });
 
 
