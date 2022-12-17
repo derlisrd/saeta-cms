@@ -4,13 +4,16 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\PublicController;
 use Illuminate\Support\Facades\Route;
 
 
 
 
 
-Route::view('/','Public.index');
+Route::get('/',[PublicController::class,'index'])->name('public.index');
+
+Route::get('/{slug}',[PublicController::class,'post'])->name('public.post');
 
 
 Route::redirect('/login','/admin');
