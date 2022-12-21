@@ -17,9 +17,7 @@
         </a>
 
 
-        <a href="#" class="dashboard-nav-item"><i class="fas fa-tachometer-alt"></i> dashboard</a>
-
-        <a href="#" class="dashboard-nav-item"><i class="fas fa-file-upload"></i> Upload </a>
+        <a href="./filemanager" class="dashboard-nav-item"><i class="fas fa-file-upload"></i> Media </a>
 
 
         <div class='dashboard-nav-dropdown {{ request()->routeIs('posts*') ? 'show' : '' }}'>
@@ -40,20 +38,10 @@
 
 
         <div class='dashboard-nav-dropdown'><a href="#!"
-                class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i class="fas fa-users"></i> Users </a>
-            <div class='dashboard-nav-dropdown-menu'><a href="#" class="dashboard-nav-dropdown-item">All</a><a
-                    href="#" class="dashboard-nav-dropdown-item">Subscribed</a><a href="#"
-                    class="dashboard-nav-dropdown-item">Non-subscribed</a><a href="#"
-                    class="dashboard-nav-dropdown-item">Banned</a><a href="#"
-                    class="dashboard-nav-dropdown-item">New</a>
-            </div>
-        </div>
-        <div class='dashboard-nav-dropdown'><a href="#!"
-                class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i class="fas fa-money-check-alt"></i> Payments
-            </a>
-            <div class='dashboard-nav-dropdown-menu'><a href="#" class="dashboard-nav-dropdown-item">All</a><a
-                    href="#" class="dashboard-nav-dropdown-item">Recent</a><a href="#"
-                    class="dashboard-nav-dropdown-item"> Projections</a>
+                class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i class="fas fa-users"></i> Usuarios </a>
+            <div class='dashboard-nav-dropdown-menu'>
+                <a href="#" class="dashboard-nav-dropdown-item">Todos</a>
+                <a href="#" class="dashboard-nav-dropdown-item">Suscritos</a>
             </div>
         </div>
 

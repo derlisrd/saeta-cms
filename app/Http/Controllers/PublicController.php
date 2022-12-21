@@ -13,4 +13,8 @@ class PublicController extends Controller
 
         return view('Public.Posts.posts',compact('posts'));
     }
+
+    public function post(){
+
+    }
 }

@@ -17,6 +17,8 @@
 
     @yield('styles')
 
+    @livewireStyles
+
 </head>
 <body>
 
@@ -43,6 +45,6 @@
     <script src="{{ URL('assets/js/script.js') }}"></script>
 
     @yield('scripts')
-
+    @livewireScripts
 </body>
 </html>

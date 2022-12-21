@@ -6,14 +6,14 @@ use App\Http\Controllers\MenuController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\PublicController;
 use Illuminate\Support\Facades\Route;
-
+use \UniSharp\LaravelFilemanager\Lfm;
 
 
 
 
 Route::get('/',[PublicController::class,'index'])->name('public.index');
 
-Route::get('/{slug}',[PublicController::class,'post'])->name('public.post');
+Route::get('/articulo/{slug}',[PublicController::class,'post'])->name('public.post');
 
 
 Route::redirect('/login','/admin');
@@ -33,10 +33,18 @@ Route::group(['prefix'=>'admin','middleware'=>['auth']],function(){
     });
 
 
+    Route::group(['prefix' => 'filemanager'], function () {
+        Lfm::routes();
+    });
+
+
     Route::get('/menu',[MenuController::class,'index'])->name('menu');
+    Route::get('/menu/create',[MenuController::class,'create'])->name('menu.create');
 
 
 
     Route::get("logout",[LoginController::class,'logout'])->name("logout");
 });
 
+
+Route::view('testing','Test.index');

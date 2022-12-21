@@ -9,7 +9,7 @@
         <h4>Menú</h4>
     </div>
     <div class="col-12 col-md-4">
-        <a href="{{ route('posts.create') }}" class="btn btn-outline-success my-3">Agregar</a>
+        <a href="{{ route('menu.create') }}" class="btn btn-outline-success my-3">Agregar</a>
     </div>
     <div class="col-12">
 
@@ -18,8 +18,6 @@
                 <tr class="table-dark">
                     <th>ID</th>
                     <th scope="row">Título</th>
-                    <td>Categoría</td>
-                    <td>Autor</td>
                     <td>Acciones</td>
                 </tr>
             </thead>
@@ -28,8 +26,6 @@
                 <tr>
                     <td>{{ $p->id }}</td>
                     <td>{{ $p->title }} </td>
-                    <td>{{ $p->category->title }}</td>
-                    <td>{{ $p->author->name }}</td>
                     <td>
                         <a href="#" class="btn btn-outline-info">Editar</a>
                         <a href="#" class="btn btn-outline-danger">Borrar</a>
@@ -41,8 +37,6 @@
                 <tr class="table-dark">
                     <th>ID</th>
                     <th scope="row">Título</th>
-                    <td>Categoría</td>
-                    <td>Autor</td>
                     <td>Acciones</td>
                 </tr>
             </tfoot>

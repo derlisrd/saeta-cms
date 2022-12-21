@@ -20,6 +20,11 @@ class MenuController extends Controller
         return view('Menu.index',compact('menus'));
     }
 
+    public function create(){
+
+        return view('Menu.create');
+    }
+
     public function store(Request $r){
 
 

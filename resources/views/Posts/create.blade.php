@@ -5,6 +5,9 @@
 
 @section('styles')
 <link rel="stylesheet" href="{{asset('vendor/laraberg/css/laraberg.css')}}">
+
+<meta name="csrf-token" content="{{ csrf_token() }}">
+
 @endsection
 
 
@@ -31,7 +34,7 @@
 
                 <div class="col-12 mt-4">
 
-                    <textarea id="editor1" hidden name="text" ></textarea>
+                    <textarea id="editor1" placeholder="Escribe tu artículo" hidden name="text" ></textarea>
 
                 </div>
 
@@ -122,13 +125,71 @@
 <script src="{{ asset('vendor/laraberg/js/laraberg.js') }}"></script>
 
 <script>
-    Laraberg.init('editor1', { maxHeight: '500px' })
+    $(function() {
+                if (typeof Laraberg == 'undefined') {
+                    console.warning('Laraberg not found!');
+                    return;
+                }
+                Laraberg.init('editor1', {
+                    mediaUpload: mediaUploaded,
+                    minHeight: '100vh',
+                    laravelFilemanager: { prefix: '/admin/filemanager' }
+                });
+})
+
+const mediaUploaded = ({
+           filesList,
+           onFileChange
+       }) => {
+           setTimeout(async () => {
+
+                var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
+               let formD = new FormData;
+               Array.from(filesList).map(file => {
+                   formD.append('upload', file);
+               });
+
+               formD.append('_token',CSRF_TOKEN);
+
+               const uploadedResponse = await $.ajax({
+                   method: "POST",
+                   url: `/admin/filemanager/upload`,
+                   data: formD,
+                   processData: false,
+                   contentType: false,
+                   success: function(response) {
+                       console.log({
+                           response
+                       })
+                       return response;
+                   },
+                   error: function(savePostErr) {
+                       console.log({
+                           savePostErr
+                       })
+                   }
+               })
+
+
+               const uploadedFiles = Array.from(filesList).map(file => {
+
+                   return {
+                       id: new Date().getTime(),
+                       name: file.name,
+                       url: uploadedResponse.url
+                   }
+               })
+
+               console.log(uploadedFiles)
+
+               onFileChange(uploadedFiles)
+           }, 1000)
+       }
 </script>
 <script>
     function changeslug(e){
         let title = e.value.replace(/\s+/g, '-').toLowerCase();
-        document.getElementById('slug').value = title
+        document.getElementById('slug').value = title.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     }
 </script>
-
 @endsection
