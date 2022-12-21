@@ -50,6 +50,8 @@
         <a href="{{ route('profile') }}" class="dashboard-nav-item {{ request()->routeIs('profile*') ? 'active' : '' }}"><i class="fas fa-user"></i> Perfil </a>
 
         <div class="nav-item-divider"></div>
+        <a href="{{ route('public.index') }}" class="dashboard-nav-item"><i class="fas fa-eye"></i> Ver página </a>
+
         <a href="{{ route('logout') }}" class="dashboard-nav-item"><i class="fas fa-sign-out-alt"></i> Logout </a>
     </nav>
 </div>

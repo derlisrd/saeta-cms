@@ -32,7 +32,7 @@
                         <td>{{ $p->category->title }}</td>
                         <td>{{ $p->author->name }}</td>
                         <td>
-                            <a href="#" class="btn btn-outline-info">Editar</a>
+                            <a href="{{ route('posts.edit',$p->id) }}" class="btn btn-outline-info">Editar</a>
                             <a href="#" class="btn btn-outline-danger">Borrar</a>
                         </td>
                     </tr>

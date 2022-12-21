@@ -30,6 +30,13 @@
             <small class="form-text text-muted">Descripción del sitio</small>
         </div>
     </div>
+
+    <div class="col-12">
+        <div class="form-group mt-5">
+            <input class="form-control" name="site_copyright" required value="{{ $site_copyright }}" />
+            <small class="form-text text-muted">Copyright del sitio</small>
+        </div>
+    </div>
     <div class="col-12">
         <button type="submit" class="btn btn-outline-success mt-5">Guardar</button>
     </div>

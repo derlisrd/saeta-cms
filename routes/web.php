@@ -35,10 +35,14 @@ Route::group(['prefix'=>'admin','middleware'=>['auth']],function(){
     Route::group(['prefix'=>'posts'],function(){
         Route::get('/',[PostsController::class,'index'])->name('posts');
         Route::get('/create',[PostsController::class,'create'])->name('posts.create');
+        Route::get('/edit/{id}',[PostsController::class,'edit'])->name('posts.edit');
+        Route::post('/edit/{id}',[PostsController::class,'update'])->name('posts.update');
         Route::post('/store',[PostsController::class,'store'])->name('posts.store');
         Route::get('/category',[PostsController::class,'category'])->name('posts.category');
         Route::get('/category/create',[CategoryController::class,'create'])->name('posts.category.create');
         Route::post('/category/store',[CategoryController::class,'store'])->name('posts.category.store');
+        Route::get('/category/edit/{id}',[CategoryController::class,'category_edit'])->name('posts.category.edit');
+        Route::post('/category/edit/{id}',[CategoryController::class,'category_update'])->name('posts.category.update');
     });
 
     Route::view('/filemanager/datas','FileManager.index')->name('filemanager.view');

@@ -15,6 +15,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;600&family=Roboto:wght@100&display=swap" rel="stylesheet">
     <link href="{{ URL('assets/css/style.css') }}" rel="stylesheet">
 
+    <link href="{{ URL('assets/css/sweetalert2.min.css') }}" rel="stylesheet">
     @yield('styles')
 
     @livewireStyles
@@ -43,7 +44,7 @@
     <script src='{{ URL('assets/js/jquery.min.js') }}'></script>
     <script src='{{ URL('assets/js/bootstrap.bundle.min.js') }}'></script>
     <script src="{{ URL('assets/js/script.js') }}"></script>
-
+    <script src="{{ URL('assets/js/sweetalert2.min.js') }}"></script>
     @yield('scripts')
     @livewireScripts
 </body>

@@ -16,7 +16,7 @@
     @livewire('menu')
 
     <div class="col-12">
-        <button class="btn btn-primary" type="submit">Guardar</button>
+        <button class="btn btn-primary mt-5" type="submit">Guardar</button>
     </div>
 
 </div>

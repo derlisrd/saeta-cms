@@ -14,7 +14,7 @@ class PublicController extends Controller
 
     public function index(){
         $menu = Post::where('type','nav_menu_item')->get();
-        $posts = Post::where('type','post')->where('status',1)->get();
+        $posts = Post::where('type','post')->where('status',1)->orderBy('id','desc')->get();
         $config = Config::where('option','site_name')->first();
         $config2 = Config::where('option','site_description')->first();
 
@@ -46,11 +46,9 @@ class PublicController extends Controller
         $menu = Post::where('type','nav_menu_item')->get();
         $category = Category::where('slug',$r->slug)->first();
 
-
-
         if($category)
         {
-            $posts = Post::where('type','post')->where('category_id',$category->id)->get();
+            $posts = Post::where('type','post')->where('category_id',$category->id)->orderBy('id','desc');
 
 
             return view('Public.Posts.categories',compact('category','menu','posts'));

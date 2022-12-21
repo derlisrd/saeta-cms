@@ -34,8 +34,8 @@
                         <td>{{ $c->slug }}</td>
                         <td>{{ $c->description }}</td>
                         <td>
-                            <a href="#" class="btn btn-outline-info">Editar</a>
-                            <a href="#" class="btn btn-outline-danger">Borrar</a>
+                            <a href="{{ route('posts.category.edit',$c->id) }}" class="btn btn-outline-info">Editar</a>
+                            <a href="#" onClick="borrar({{ $c->id }})" class="btn btn-outline-danger">Borrar</a>
                         </td>
                     </tr>
                     @endforeach
@@ -54,4 +54,19 @@
         </div>
     </div>
 
+@endsection
+@section('scripts')
+    <script>
+        function borrar (id){
+            Swal.fire({
+            title: 'Desea borrar?',
+            showCancelButton: true,
+            }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                Swal.fire('Saved!', '', 'success')
+            }
+            })
+        }
+    </script>
 @endsection
