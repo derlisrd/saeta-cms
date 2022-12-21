@@ -17,8 +17,11 @@ use \UniSharp\LaravelFilemanager\Lfm;
 
 Route::get('/',[PublicController::class,'index'])->name('public.index');
 
-Route::get('/articulo/{slug}',[PublicController::class,'post'])->name('public.post');
+Route::get('/post/{slug}',[PublicController::class,'post'])->name('public.post');
 
+Route::get('/page/{slug}',[PublicController::class,'post'])->name('public.page');
+
+Route::get('/category/{slug}',[PublicController::class,'category'])->name('public.category');
 
 
 
@@ -47,6 +50,7 @@ Route::group(['prefix'=>'admin','middleware'=>['auth']],function(){
 
     Route::get('/menu',[MenuController::class,'index'])->name('menu');
     Route::get('/menu/create',[MenuController::class,'create'])->name('menu.create');
+    Route::post('/menu',[MenuController::class,'store'])->name('menu.store');
 
     Route::get('/config',[ConfigController::class,'index'])->name('config');
     Route::post('/config',[ConfigController::class,'store'])->name('config.store');

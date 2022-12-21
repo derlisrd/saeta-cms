@@ -12,14 +12,16 @@ class Menu extends Component
     public $category;
     public $type;
 
-    public function changeType (){
+    public function TraerDatos (){
 
         if($this->type=='category'){
             $this->category = Category::all();
         }
 
         if($this->type=='page'){
-            $this->category = Post::all();
+            $this->category = Post::where('type','post')
+            ->orWhere('type','page')
+            ->get();
         }
 
 

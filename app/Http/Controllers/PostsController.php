@@ -60,8 +60,6 @@ class PostsController extends Controller
             'text'=>$request->text
         ];
 
-
-        //dd($datos);
         Post::create($datos); return redirect()->route('posts');
     }
 

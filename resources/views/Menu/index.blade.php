@@ -5,10 +5,10 @@
 
 @section('container')
 <div class="row">
-    <div class="col-12 col-md-8">
-        <h4>Menú</h4>
+    <div class="col-12">
+        <h1>Menú</h1>
     </div>
-    <div class="col-12 col-md-4">
+    <div class="col-12">
         <a href="{{ route('menu.create') }}" class="btn btn-outline-success my-3">Agregar</a>
     </div>
     <div class="col-12">
@@ -18,14 +18,16 @@
                 <tr class="table-dark">
                     <th>ID</th>
                     <th scope="row">Título</th>
+                    <th>Referencia</th>
                     <td>Acciones</td>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($menus as $m)
+                @foreach ($menus as $p)
                 <tr>
                     <td>{{ $p->id }}</td>
                     <td>{{ $p->title }} </td>
+                    <td>{{ $p->reference }} </td>
                     <td>
                         <a href="#" class="btn btn-outline-info">Editar</a>
                         <a href="#" class="btn btn-outline-danger">Borrar</a>
@@ -37,6 +39,7 @@
                 <tr class="table-dark">
                     <th>ID</th>
                     <th scope="row">Título</th>
+                    <th>Referencia</th>
                     <td>Acciones</td>
                 </tr>
             </tfoot>

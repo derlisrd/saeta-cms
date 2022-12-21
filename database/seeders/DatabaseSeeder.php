@@ -37,6 +37,10 @@ class DatabaseSeeder extends Seeder
             'option'=>'site_description',
             'value'=>'Un sitio creado con php'
         ]);
+        Config::create([
+            'option'=>'site_copyright',
+            'value'=>'Copyright'
+        ]);
         // User::factory(10)->create();
     }
 }

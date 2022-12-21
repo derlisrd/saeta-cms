@@ -6,12 +6,14 @@
 @section('container')
 
     <div class="row">
-        <div class="col-12 col-md-8">
-            <h4>Categorías</h4>
+        <div class="col-12">
+            <h1>Categorías</h1>
         </div>
-        <div class="col-12 col-md-4">
+        <div class="col-12">
             <a href="{{ route('posts.category.create') }}" class="btn btn-outline-success my-3">Agregar</a>
         </div>
+
+
         <div class="col-12">
 
             <table class="table table-hover">
