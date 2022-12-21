@@ -15,8 +15,9 @@ class CreateConfigsTable extends Migration
     {
         Schema::create('configs', function (Blueprint $table) {
             $table->id();
-            $table->string('site_name');
-            $table->string('site_description')->nullable();
+            $table->string('option');
+            $table->string('value')->nullable();
+            $table->boolean('public')->default(1);
             $table->timestamps();
         });
     }

@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Category;
+use App\Models\Config;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -27,6 +28,14 @@ class DatabaseSeeder extends Seeder
         Category::create([
             'title'=>'Sin categoría',
             'slug'=>'sin-categoria'
+        ]);
+        Config::create([
+            'option'=>'site_name',
+            'value'=>'Sitio increible'
+        ]);
+        Config::create([
+            'option'=>'site_description',
+            'value'=>'Un sitio creado con php'
         ]);
         // User::factory(10)->create();
     }

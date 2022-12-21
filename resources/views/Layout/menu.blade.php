@@ -17,7 +17,7 @@
         </a>
 
 
-        <a href="./filemanager" class="dashboard-nav-item"><i class="fas fa-file-upload"></i> Media </a>
+        <a href="{{ route('filemanager.view') }}" class="dashboard-nav-item"><i class="fas fa-file-upload"></i> Media </a>
 
 
         <div class='dashboard-nav-dropdown {{ request()->routeIs('posts*') ? 'show' : '' }}'>
@@ -45,10 +45,10 @@
             </div>
         </div>
 
-        <a href="{{ route('menu') }}" class="dashboard-nav-item"><i class="fa fa-traffic-light"></i> Menu </a>
-        <a href="#" class="dashboard-nav-item"><i class="fas fa-cogs"></i> Config. </a>
-        <a href="#"
-            class="dashboard-nav-item"><i class="fas fa-user"></i> Profile </a>
+        <a href="{{ route('menu') }}" class="dashboard-nav-item {{ request()->routeIs('menu*') ? 'active' : '' }}"><i class="fa fa-traffic-light"></i> Menu </a>
+        <a href="{{ route('config') }}" class="dashboard-nav-item {{ request()->routeIs('config*') ? 'active' : '' }}"><i class="fas fa-cogs"></i> Config. </a>
+        <a href="{{ route('profile') }}" class="dashboard-nav-item {{ request()->routeIs('profile*') ? 'active' : '' }}"><i class="fas fa-user"></i> Perfil </a>
+
         <div class="nav-item-divider"></div>
         <a href="{{ route('logout') }}" class="dashboard-nav-item"><i class="fas fa-sign-out-alt"></i> Logout </a>
     </nav>

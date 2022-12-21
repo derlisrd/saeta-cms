@@ -1,11 +1,15 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ConfigController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PublicController;
+//use App\Http\Livewire\Config;
 use Illuminate\Support\Facades\Route;
+use Symfony\Component\HttpKernel\Profiler\Profile;
 use \UniSharp\LaravelFilemanager\Lfm;
 
 
@@ -14,6 +18,8 @@ use \UniSharp\LaravelFilemanager\Lfm;
 Route::get('/',[PublicController::class,'index'])->name('public.index');
 
 Route::get('/articulo/{slug}',[PublicController::class,'post'])->name('public.post');
+
+
 
 
 Route::redirect('/login','/admin');
@@ -32,16 +38,25 @@ Route::group(['prefix'=>'admin','middleware'=>['auth']],function(){
         Route::post('/category/store',[CategoryController::class,'store'])->name('posts.category.store');
     });
 
+    Route::view('/filemanager/datas','FileManager.index')->name('filemanager.view');
 
     Route::group(['prefix' => 'filemanager'], function () {
-        Lfm::routes();
+        \UniSharp\LaravelFilemanager\Lfm::routes();
     });
 
 
     Route::get('/menu',[MenuController::class,'index'])->name('menu');
     Route::get('/menu/create',[MenuController::class,'create'])->name('menu.create');
 
+    Route::get('/config',[ConfigController::class,'index'])->name('config');
+    Route::post('/config',[ConfigController::class,'store'])->name('config.store');
 
+
+    Route::get('/profile',[ProfileController::class,'index'])->name('profile');
+
+    Route::post('/profile',[ProfileController::class,'update'])->name('profile.update');
+
+    Route::post('/profile/pass',[ProfileController::class,'pass'])->name('profile.save.pass');
 
     Route::get("logout",[LoginController::class,'logout'])->name("logout");
 });

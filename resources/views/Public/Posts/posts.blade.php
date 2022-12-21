@@ -1,5 +1,8 @@
 @extends('Public.Layout.app')
 
+
+@section('Title',$site_name)
+
 @section('header')
 
 
@@ -8,8 +11,8 @@
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
                 <div class="site-heading">
-                    <h1>Clean Blog</h1>
-                    <span class="subheading">A Blog Theme by Start Bootstrap</span>
+                    <h1>{{ $site_name }}</h1>
+                    <span class="subheading">{{ $site_description }}</span>
                 </div>
             </div>
         </div>
@@ -37,7 +40,7 @@
                 <p class="post-meta">
                     Escrito por:
                     <a href="#!">{{ $post->author->name }}</a>
-                    on September 24, 2022
+                    {{ $post->created_at->format('d-m-Y') }}
                 </p>
             </div>
             <!-- Divider-->
