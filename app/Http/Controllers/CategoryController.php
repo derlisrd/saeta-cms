@@ -14,11 +14,13 @@ class CategoryController extends Controller
     public function create(){
         return view('Posts.createcategory');
     }
+    public function destroy($id){
+        $c = Category::find($id);
+        $c->delete();
+        return redirect()->route('posts.category')->with('eliminado',true);
+    }
 
     public function store (Request $r){
-
-
-
         $r->validate([
             'title'=> ['required'],
             'slug'=>['required'],

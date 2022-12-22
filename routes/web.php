@@ -41,6 +41,7 @@ Route::group(['prefix'=>'admin','middleware'=>['auth']],function(){
         Route::get('/category',[PostsController::class,'category'])->name('posts.category');
         Route::get('/category/create',[CategoryController::class,'create'])->name('posts.category.create');
         Route::post('/category/store',[CategoryController::class,'store'])->name('posts.category.store');
+        Route::delete('/category/{id}',[CategoryController::class,'destroy'])->name('posts.delete');
         Route::get('/category/edit/{id}',[CategoryController::class,'category_edit'])->name('posts.category.edit');
         Route::post('/category/edit/{id}',[CategoryController::class,'category_update'])->name('posts.category.update');
     });

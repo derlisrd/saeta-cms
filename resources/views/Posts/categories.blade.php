@@ -35,7 +35,11 @@
                         <td>{{ $c->description }}</td>
                         <td>
                             <a href="{{ route('posts.category.edit',$c->id) }}" class="btn btn-outline-info">Editar</a>
-                            <a href="#" onClick="borrar({{ $c->id }})" class="btn btn-outline-danger">Borrar</a>
+                            <form action="{{ route('posts.delete',$c->id) }}" class="d-inline formulario-eliminar" method="post" >
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-outline-danger">Borrar</button>
+                            </form>
                         </td>
                     </tr>
                     @endforeach
@@ -57,16 +61,22 @@
 @endsection
 @section('scripts')
     <script>
-        function borrar (id){
+        @if (session('eliminado'))
+            Swal.fire('Borrado!','Tristin tu categoría ya se chingó a la chingadera. chau','success')
+        @endif
+    </script>
+    <script>
+        $('.formulario-eliminar').submit(function(e){
+            e.preventDefault();
             Swal.fire({
-            title: 'Desea borrar?',
+            title: 'Borrar',
+            text:'Desea borrar esta categoría?',
             showCancelButton: true,
             }).then((result) => {
-            /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
-                Swal.fire('Saved!', '', 'success')
+                this.submit();
             }
             })
-        }
+        });
     </script>
 @endsection

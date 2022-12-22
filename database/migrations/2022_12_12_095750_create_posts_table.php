@@ -17,12 +17,16 @@ class CreatePostsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->unsignedBigInteger('media_id')->nullable();
-            $table->unsignedBigInteger('category_id')->nullable();
+
+            //$table->unsignedBigInteger('category_id')->nullable();
+
+            $table->foreignId('category_id')->nullable()->constrained('categories')->cascadeOnUpdate()->nullOnDelete();
+
             $table->unsignedBigInteger('post_id')->nullable();
             $table->string('title');
             $table->text('description')->nullable();
             $table->text('tags')->nullable();
-            $table->string('slug')->nullable();
+            $table->string('slug')->unique()->nullable();
             $table->longText('text')->nullable();
             $table->string('type')->default('post');
             $table->string('reference')->nullable();
