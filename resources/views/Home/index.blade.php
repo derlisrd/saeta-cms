@@ -5,6 +5,6 @@
 
 @section('container')
 
-<h1>Welcome</h1>
+<h2>Bienvenid@ {{ Auth::user()->name }}</h2>
 
 @endsection

@@ -27,7 +27,12 @@
         @include('Layout.menu')
 
         <div class='dashboard-app'>
-            <header class='dashboard-toolbar'><span class="menu-toggle cursor-pointer"><i class="fas fa-bars"></i></span></header>
+            <header class='dashboard-toolbar'>
+                <span class="menu-toggle cursor-pointer"><i class="fas fa-bars"></i></span>
+                <div class="d-flex flex-row-reverse w-100">
+                    <small class="text-muted"> {{ Auth::user()->name }} <i class="fa fa-user"></i></small>
+                </div>
+            </header>
 
 
             <div class='dashboard-content'>

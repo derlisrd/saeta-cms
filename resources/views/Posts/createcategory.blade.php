@@ -12,12 +12,12 @@
         <div class="col-12"><h3>Nueva categoría</h3></div>
         <div class="col-12">
             @if ($errors->any())
-            <div class="alert alert-info d-block">
-                @foreach ($errors->all() as $error)
-                    <p>{{ $error }}</p>
-                @endforeach
-            </div>
-        @endif
+                <div class="alert alert-info d-block">
+                    @foreach ($errors->all() as $error)
+                        <p>{{ $error }}</p>
+                    @endforeach
+                </div>
+            @endif
         </div>
         <div class="col-12 col-sm-6">
             <div class="form-group mt-3">

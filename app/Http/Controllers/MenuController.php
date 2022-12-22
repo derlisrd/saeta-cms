@@ -44,8 +44,16 @@ class MenuController extends Controller
 
         Post::create($datos);
         return redirect()->route('menu');
+    }
+
+    public function destroy($id){
+        $c = Post::find($id);
+        $c->delete();
+        return redirect()->route('menu')->with('eliminado',true);
 
     }
+
+
 
     private function eliminar_acentos($cadena){
 

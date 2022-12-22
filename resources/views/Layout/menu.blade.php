@@ -36,11 +36,11 @@
         </div>
 
 
-        <div class='dashboard-nav-dropdown'><a href="#!"
-                class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i class="fas fa-users"></i> Usuarios </a>
+        <div class='dashboard-nav-dropdown {{ request()->routeIs('users*') ? 'show' : '' }}'>
+            <a href="#!" class="dashboard-nav-item dashboard-nav-dropdown-toggle"><i class="fas fa-users"></i> Usuarios </a>
             <div class='dashboard-nav-dropdown-menu'>
-                <a href="#" class="dashboard-nav-dropdown-item">Todos</a>
-                <a href="#" class="dashboard-nav-dropdown-item">Suscritos</a>
+                <a href="{{ route('users') }}" class="dashboard-nav-dropdown-item {{ request()->routeIs('users') ? 'active' : '' }}">Todos</a>
+                <a href="{{ route('users.create') }}" class="dashboard-nav-dropdown-item {{ request()->routeIs('users.create') ? 'active' : '' }}">Nuevo</a>
             </div>
         </div>
 

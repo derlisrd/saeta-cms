@@ -30,7 +30,11 @@
                     <td>{{ $p->reference }} </td>
                     <td>
                         <a href="#" class="btn btn-outline-info">Editar</a>
-                        <a href="#" class="btn btn-outline-danger">Borrar</a>
+                        <form action="{{ route('menu.delete',$p->id) }}" class="d-inline formulario-eliminar" method="post" >
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-outline-danger">Borrar</button>
+                        </form>
                     </td>
                 </tr>
                 @endforeach
@@ -47,5 +51,29 @@
 
     </div>
 </div>
+
+@endsection
+@section('scripts')
+
+<script>
+    @if (session('eliminado'))
+        Swal.fire('Borrado!','El menú ha sido borrado que triste :(','success')
+    @endif
+</script>
+
+<script>
+    $('.formulario-eliminar').submit(function(e){
+        e.preventDefault();
+        Swal.fire({
+        title: 'Borrar',
+        text:'Desea borrar ese menú?',
+        showCancelButton: true,
+        }).then((result) => {
+        if (result.isConfirmed) {
+            this.submit();
+        }
+        })
+    });
+</script>
 
 @endsection
