@@ -1,11 +1,10 @@
 @yield('menu-nav')
 <div class="dashboard-nav">
     <header>
-        <a href="{{ route('home') }}" class="menu-toggle">
-            <i class="fas fa-bars"></i></a>
-            <a href="{{ route('home') }}" class="brand-logo">
-                <i class="fa fa-rocket"></i> <span> {{ env('APP_NAME') }}</span>
-            </a>
+        <a href="#" class="menu-toggle"><i class="fas fa-bars"></i></a>
+        <a href="#" class="brand-logo">
+            <i class="fa fa-rocket"></i> <small class="text-muted"> {{ site_name()}}</small>
+        </a>
     </header>
 
 

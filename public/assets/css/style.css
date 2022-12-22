@@ -107,6 +107,7 @@ h1, .h1 {
     display: -ms-flexbox;
     display: flex;
     min-height: 100vh;
+    transition:ease-in-out 0.2s;
 }
 
 .dashboard-app {
@@ -132,6 +133,7 @@ h1, .h1 {
     -ms-flex-positive: 2;
     flex-grow: 2;
     padding: 25px;
+    transition:ease-in-out 0.2s;
 }
 
 .dashboard-nav {
@@ -142,10 +144,12 @@ h1, .h1 {
     bottom: 0;
     overflow: auto;
     background-color: #1a1a1a;
+    transition:ease-in-out 0.2s;
 }
 
 .dashboard-compact .dashboard-nav {
     display: none;
+    transition:ease-in-out 0.2s;
 }
 
 .dashboard-nav header {
@@ -163,6 +167,7 @@ h1, .h1 {
     -webkit-align-items: center;
     -ms-flex-align: center;
     align-items: center;
+    transition:ease-in-out 0.2s;
 }
 
 .dashboard-nav header .menu-toggle {
@@ -324,11 +329,12 @@ h1, .h1 {
     -webkit-align-items: center;
     -ms-flex-align: center;
     align-items: center;
-    transition: ease-out 0.5s;
+    transition:ease-in-out 0.5s;
 }
 
 .dashboard-nav-dropdown-item:hover {
     background: rgba(255, 255, 255, 0.04);
+    transition:ease-in-out 0.1s;
 }
 
 .menu-toggle {
@@ -388,10 +394,12 @@ h1, .h1 {
 @media (min-width: 992px) {
     .dashboard-app {
         margin-left: 238px;
+        transition:ease-in-out 0.2s;
     }
 
     .dashboard-compact .dashboard-app {
         margin-left: 0;
+        transition:ease-in-out 0.2s;
     }
 }
 
@@ -399,6 +407,7 @@ h1, .h1 {
 @media (max-width: 768px) {
     .dashboard-content {
         padding: 15px 0px;
+        transition:ease-in-out 0.2s;
     }
 }
 
@@ -411,10 +420,12 @@ h1, .h1 {
         left: 0;
         bottom: 0;
         z-index: 1070;
+        transition:ease-in-out 0.2s;
     }
 
     .dashboard-nav.mobile-show {
         display: block;
+        transition:ease-in-out 0.2s;
     }
 }
 
@@ -434,6 +445,7 @@ h1, .h1 {
 
     .dashboard-compact .dashboard-toolbar {
         left: 0;
+        transition:ease-in-out 0.2s;
     }
 }
 

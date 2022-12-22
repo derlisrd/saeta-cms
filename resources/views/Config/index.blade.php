@@ -6,6 +6,9 @@
 @section('container')
 <form method="post" action="{{ route('config.store') }}">
 @csrf
+<div class="container">
+
+
 <div class="row">
     <div class="col-12">
         <h1>Configuración de sitio</h1>
@@ -40,8 +43,7 @@
     <div class="col-12">
         <button type="submit" class="btn btn-outline-success mt-5">Guardar</button>
     </div>
-
-
+</div>
 </div>
 </form>
 @endsection

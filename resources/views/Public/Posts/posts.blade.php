@@ -45,6 +45,8 @@
                 <p class="post-meta">
                     En: {{ $post->category->title; }}
                 </p>
+
+
             </div>
             <!-- Divider-->
             <hr class="my-4" />

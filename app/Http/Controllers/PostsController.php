@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Images;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -46,6 +47,9 @@ class PostsController extends Controller
     {
         $user_id = Auth::id();
 
+
+
+
         $request->validate([
             'title'=> ['required'],
             'slug'=>['required'],
@@ -73,9 +77,16 @@ class PostsController extends Controller
         return redirect()->back()->with('updated',true);
     }
 
+
+
+
+
     public function store(Request $request)
     {
         $user_id = Auth::id();
+
+
+
 
         $request->validate([
             'title'=> ['required'],
@@ -87,8 +98,15 @@ class PostsController extends Controller
         ]);
         $slug = $request->slug ? str_replace(" ", "-", strtolower($request->slug)) : strtolower($request->slug);
 
+        $image_id = null;
+        if($request->filepath){
+            $image = Images::create(['url'=>$request->filepath]);
+            $image_id = $image->id;
+        }
+
         $datos = [
             'title'=> $request->title,
+            'image_id'=>$image_id,
             'user_id'=>$user_id,
             'category_id'=>$request->category_id,
             'slug'=>preg_replace('([^A-Za-z0-9])', '-', $slug),
@@ -99,6 +117,7 @@ class PostsController extends Controller
             'description'=>$request->description,
             'text'=>$request->text
         ];
+
 
         Post::create($datos); return redirect()->route('posts');
     }
