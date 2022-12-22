@@ -59,9 +59,14 @@ class PostsController extends Controller
             'comment_status'=>['required'],
         ]);
         $slug = $request->slug ? str_replace(" ", "-", strtolower($request->slug)) : strtolower($request->slug);
-
+        $image_id = null;
+        if($request->filepath){
+            $image = Images::create(['url'=>$request->filepath]);
+            $image_id = $image->id;
+        }
         $datos = [
             'title'=> $request->title,
+            'image_id'=>$image_id,
             'user_id'=>$user_id,
             'category_id'=>$request->category_id,
             'slug'=>preg_replace('([^A-Za-z0-9])', '-', $slug),

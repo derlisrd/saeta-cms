@@ -4,9 +4,9 @@
 @section('title', 'Nuevo Post')
 
 @section('styles')
-<link rel="stylesheet" href="{{asset('vendor/laraberg/css/laraberg.css')}}">
+    <link rel="stylesheet" href="{{ asset('vendor/laraberg/css/laraberg.css') }}">
 
-<meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
 @endsection
 
@@ -20,8 +20,9 @@
             <div class="row">
                 <div class="col-12 col-md-8">
                     <div class="form-group">
-                        <input required onkeyup="changeslug(this)" autofocus autocomplete="off" class="form-control form-control-lg" name="title"
-                            value="{{ old('title') }}" placeholder="Título...">
+                        <input required onkeyup="changeslug(this)" autofocus autocomplete="off"
+                            class="form-control form-control-lg" name="title" value="{{ old('title') }}"
+                            placeholder="Título...">
                     </div>
                 </div>
                 <div class="col-12 col-md-4">
@@ -33,17 +34,18 @@
                 <div class="col-12">
                     <div class="input-group mt-3">
                         <span class="input-group-btn">
-                          <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary text-white">
-                            <i class="fa fa-image"></i>Elegir
-                          </a>
+                            <a id="lfm" data-input="thumbnail" data-preview="holder"
+                                class="btn btn-primary text-white">
+                                <i class="fa fa-image"></i>Elegir
+                            </a>
                         </span>
                         <input id="thumbnail" class="form-control" type="text" name="filepath">
-                      </div>
+                    </div>
                 </div>
 
                 <div class="col-12 mt-4">
 
-                    <textarea id="editor1" placeholder="Escribe tu artículo" hidden name="text" ></textarea>
+                    <textarea id="editor1" placeholder="Escribe tu artículo" hidden name="text"></textarea>
 
                 </div>
 
@@ -66,7 +68,8 @@
                             <small id="slugHelp" class="form-text text-muted">Descripción</small>
                         </div>
                         <div class="form-group">
-                            <input  id="slug" class="form-control mt-2" name="slug" value="{{ old('slug') }}" placeholder="Slug..." />
+                            <input id="slug" class="form-control mt-2" name="slug" value="{{ old('slug') }}"
+                                placeholder="Slug..." />
                             <small id="slugHelp" class="form-text text-muted">alias para el ceo</small>
                         </div>
                         <div class="form-group">
@@ -79,7 +82,8 @@
                         </div>
                         <div class="form-group mt-2">
                             <label for="tags" class="form-label font-weight-bold mt-2">Tags: </label>
-                            <input  id="tags" class="form-control" name="tags" value="{{ old('tags') }}" placeholder="Noticias, fotografías,..." />
+                            <input id="tags" class="form-control" name="tags" value="{{ old('tags') }}"
+                                placeholder="Noticias, fotografías,..." />
                             <small id="slugHelp" class="form-text text-muted">Tags deben ir entre comas</small>
                         </div>
 
@@ -127,88 +131,92 @@
 
 @section('scripts')
 
-<script src="https://unpkg.com/react@16.8.6/umd/react.production.min.js"></script>
-  <script src="https://unpkg.com/react-dom@16.8.6/umd/react-dom.production.min.js"></script>
-  <script src="https://unpkg.com/moment@2.24.0/min/moment.min.js"></script>
+    <script src="https://unpkg.com/react@16.8.6/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@16.8.6/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/moment@2.24.0/min/moment.min.js"></script>
 
-<script src="{{ asset('vendor/laraberg/js/laraberg.js') }}"></script>
+    <script src="{{ asset('vendor/laraberg/js/laraberg.js') }}"></script>
 
-<script>
-    $(function() {
-                if (typeof Laraberg == 'undefined') {
-                    console.warning('Laraberg not found!');
-                    return;
+    <script>
+        $(function() {
+            if (typeof Laraberg == 'undefined') {
+                console.warning('Laraberg not found!');
+                return;
+            }
+            Laraberg.init('editor1', {
+                mediaUpload: mediaUploaded,
+                minHeight: '100vh',
+                laravelFilemanager: {
+                    prefix: '/admin/filemanager'
                 }
-                Laraberg.init('editor1', {
-                    mediaUpload: mediaUploaded,
-                    minHeight: '100vh',
-                    laravelFilemanager: { prefix: '/admin/filemanager' }
-                });
-})
+            });
+        })
 
-const mediaUploaded = ({
-           filesList,
-           onFileChange
-       }) => {
-           setTimeout(async () => {
+        const mediaUploaded = ({
+            filesList,
+            onFileChange
+        }) => {
+            setTimeout(async () => {
 
                 var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
-               let formD = new FormData;
-               Array.from(filesList).map(file => {
-                   formD.append('upload', file);
-               });
+                let formD = new FormData;
+                Array.from(filesList).map(file => {
+                    formD.append('upload', file);
+                });
 
-               formD.append('_token',CSRF_TOKEN);
+                formD.append('_token', CSRF_TOKEN);
 
-               const uploadedResponse = await $.ajax({
-                   method: "POST",
-                   url: `/admin/filemanager/upload`,
-                   data: formD,
-                   processData: false,
-                   contentType: false,
-                   success: function(response) {
-                       console.log({
-                           response
-                       })
-                       return response;
-                   },
-                   error: function(savePostErr) {
-                       console.log({
-                           savePostErr
-                       })
-                   }
-               })
-
-
-               const uploadedFiles = Array.from(filesList).map(file => {
-
-                   return {
-                       id: new Date().getTime(),
-                       name: file.name,
-                       url: uploadedResponse.url
-                   }
-               })
-
-               console.log(uploadedFiles)
-
-               onFileChange(uploadedFiles)
-           }, 1000)
-       }
-</script>
-
-<script>
-    {!! \File::get(base_path('vendor/unisharp/laravel-filemanager/public/js/stand-alone-button.js')) !!}
-  </script>
-  <script>
-    $('#lfm').filemanager('image', {prefix: '/admin/filemanager'});
-  </script>
+                const uploadedResponse = await $.ajax({
+                    method: "POST",
+                    url: `/admin/filemanager/upload`,
+                    data: formD,
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+                        console.log({
+                            response
+                        })
+                        return response;
+                    },
+                    error: function(savePostErr) {
+                        console.log({
+                            savePostErr
+                        })
+                    }
+                })
 
 
+                const uploadedFiles = Array.from(filesList).map(file => {
 
-<script>
-    function changeslug(e){
-        let title = e.value.replace(/\s+/g, '-').toLowerCase();
-        document.getElementById('slug').value = title.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-    }
-</script>
+                    return {
+                        id: new Date().getTime(),
+                        name: file.name,
+                        url: uploadedResponse.url
+                    }
+                })
+
+                console.log(uploadedFiles)
+
+                onFileChange(uploadedFiles)
+            }, 1000)
+        }
+    </script>
+
+    <script>
+        {!! \File::get(base_path('vendor/unisharp/laravel-filemanager/public/js/stand-alone-button.js')) !!}
+    </script>
+    <script>
+        $('#lfm').filemanager('image', {
+            prefix: '/admin/filemanager'
+        });
+    </script>
+
+
+
+    <script>
+        function changeslug(e) {
+            let title = e.value.replace(/\s+/g, '-').toLowerCase();
+            document.getElementById('slug').value = title.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        }
+    </script>
 @endsection
