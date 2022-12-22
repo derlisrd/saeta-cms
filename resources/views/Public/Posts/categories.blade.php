@@ -38,16 +38,20 @@
                     <h3 class="post-subtitle">{{ $post->description }}</h3>
                 </a>
                 <p class="post-meta">
-                    Escrito por:
+                    Por:
                     <a href="#!">{{ $post->author->name }}</a>
                     {{ $post->created_at->format('d-m-Y') }}
+                </p>
+                <p class="post-meta">
+
+                    En: {{ $post->category->title; }}
                 </p>
             </div>
             <!-- Divider-->
             <hr class="my-4" />
             @endforeach
             <!-- Pager-->
-            <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
+            <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Anteriores →</a></div>
         </div>
     </div>
 </div>

@@ -42,6 +42,9 @@
                     <a href="#!">{{ $post->author->name }}</a>
                     {{ $post->created_at->format('d-m-Y') }}
                 </p>
+                <p class="post-meta">
+                    En: {{ $post->category->title; }}
+                </p>
             </div>
             <!-- Divider-->
             <hr class="my-4" />

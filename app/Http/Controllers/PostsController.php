@@ -70,7 +70,6 @@ class PostsController extends Controller
         ];
         Post::where('id',$request->id)->update($datos);
 
-
         return redirect()->back()->with('updated',true);
     }
 

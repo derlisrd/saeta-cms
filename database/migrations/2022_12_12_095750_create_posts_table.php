@@ -15,9 +15,11 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id')->nullable();
-            $table->unsignedBigInteger('media_id')->nullable();
 
+            $table->unsignedBigInteger('image_id')->nullable();
+            //$table->unsignedBigInteger('user_id')->nullable();
+
+            $table->foreignId('user_id')->nullable()->constrained('users')->cascadeOnUpdate()->nullOnDelete();
             //$table->unsignedBigInteger('category_id')->nullable();
 
             $table->foreignId('category_id')->nullable()->constrained('categories')->cascadeOnUpdate()->nullOnDelete();

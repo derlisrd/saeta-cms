@@ -20,6 +20,8 @@
                         <th>ID</th>
                         <th scope="row">Título</th>
                         <td>Categoría</td>
+                        <td>Tipo</td>
+                        <td>Status</td>
                         <td>Autor</td>
                         <td>Acciones</td>
                     </tr>
@@ -30,6 +32,8 @@
                         <td>{{ $p->id }}</td>
                         <td>{{ $p->title }} </td>
                         <td>{{ $p->category->title }}</td>
+                        <td>{{ $p->type }} </td>
+                        <td>{{ $p->status == '1' ? 'Publicado' : 'No publicado' }} </td>
                         <td>{{ $p->author->name }}</td>
                         <td>
                             <a href="{{ route('posts.edit',$p->id) }}" class="btn btn-outline-info">Editar</a>
@@ -43,6 +47,8 @@
                         <th>ID</th>
                         <th scope="row">Título</th>
                         <td>Categoría</td>
+                        <td>Tipo</td>
+                        <td>Status</td>
                         <td>Autor</td>
                         <td>Acciones</td>
                     </tr>

@@ -46,11 +46,12 @@ class PublicController extends Controller
         $menu = Post::where('type','nav_menu_item')->get();
         $category = Category::where('slug',$r->slug)->first();
 
+
+
+
         if($category)
         {
-            $posts = Post::where('type','post')->where('category_id',$category->id)->orderBy('id','desc');
-
-
+            $posts = Post::where('type','post')->where('category_id',$category->id)->orderBy('id','desc')->get();
             return view('Public.Posts.categories',compact('category','menu','posts'));
 
         }

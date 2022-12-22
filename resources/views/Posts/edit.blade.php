@@ -62,7 +62,7 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <textarea class="form-control" name="description"></textarea>
+                            <textarea class="form-control" name="description">{{ $post->description }}</textarea>
                             <small id="slugHelp" class="form-text text-muted">Descripción</small>
                         </div>
                         <div class="form-group">
@@ -73,38 +73,38 @@
                             <label for="category_id" class="form-label font-weight-bold mt-1">Categoría: </label>
                             <select class="form-select" name="category_id">
                                 @foreach ($categories as $c)
-                                    <option value="{{ $c->id }}">{{ $c->title }}</option>
+                                    <option value="{{ $c->id }}" @if($c->id == $post->category_id) selected @endif >{{ $c->title }}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="form-group mt-2">
                             <label for="tags" class="form-label font-weight-bold mt-2">Tags: </label>
-                            <input  id="tags" class="form-control" name="tags" value="{{ old('tags') }}" placeholder="Noticias, fotografías,..." />
+                            <input  id="tags" class="form-control" name="tags" value="{{ $post->tags }}" placeholder="Noticias, fotografías,..." />
                             <small id="slugHelp" class="form-text text-muted">Tags deben ir entre comas</small>
                         </div>
 
                         <div class="form-group">
                             <label for="type" class="form-label font-weight-bold mt-2">Tipo: </label>
                             <select class="form-select" name="type">
-                                <option value="post">Artículo</option>
-                                <option value="page">Página</option>
+                                <option value="post" @if($post->type=='post') selected @endif >Artículo</option>
+                                <option value="page" @if($post->type=='page') selected @endif >Página</option>
                             </select>
                         </div>
 
                         <div class="form-group">
                             <label for="exampleSelect1" class="form-label font-weight-bold mt-2">Estado: </label>
                             <select class="form-select" name="status">
-                                <option value="1">Publicado</option>
-                                <option value="2">Privado</option>
-                                <option value="3">Oculto</option>
-                                <option value="4">Contraseña</option>
+                                <option value="1" @if($post->status == '1') selected @endif >Publicado</option>
+                                <option value="2" @if($post->status == '2') selected @endif >Privado</option>
+                                <option value="3" @if($post->status == '3') selected @endif >Oculto</option>
+                                <option value="4" @if($post->status == '4') selected @endif >Contraseña</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="exampleSelect1" class="form-label font-weight-bold mt-2">Comentarios: </label>
                             <select class="form-select" name="comment_status">
-                                <option value="1">Permitido</option>
-                                <option value="0">Cerrado</option>
+                                <option value="1" @if($post->comment_status == '1') selected @endif>Permitido</option>
+                                <option value="0" @if($post->comment_status == '0') selected @endif>Cerrado</option>
                             </select>
                         </div>
 
