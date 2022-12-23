@@ -15,13 +15,10 @@ use \UniSharp\LaravelFilemanager\Lfm;
 
 
 
-
+Route::get('/article/{id}',[PublicController::class,'article'])->name('public.article');
 Route::get('/',[PublicController::class,'index'])->name('public.index');
-
 Route::get('/post/{slug}',[PublicController::class,'post'])->name('public.post');
-
 Route::get('/page/{slug}',[PublicController::class,'post'])->name('public.page');
-
 Route::get('/category/{slug}',[PublicController::class,'category'])->name('public.category');
 
 

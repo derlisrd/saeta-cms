@@ -54,7 +54,7 @@
                 <div class="col-12 mt-4">
 
                     <textarea id="editor1" placeholder="Escribe tu artículo" hidden name="text" >
-                        {{ $post->text }}
+                        {!! $post->text !!}
                     </textarea>
 
                 </div>

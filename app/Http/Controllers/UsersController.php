@@ -33,7 +33,8 @@ class UsersController extends Controller
             'name'=>$r->name,
             'username'=>$r->username,
             'email'=>$r->email,
-            'password'=> Hash::make($r->password)
+            'password'=> Hash::make($r->password),
+            'active'=>true,
         ];
         User::create($datos);
 

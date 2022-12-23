@@ -55,8 +55,8 @@
                                 </div>
                                 <div class="form-group d-md-flex mt-5">
                                     <div class="w-50 text-left">
-                                        <label class="checkbox-wrap checkbox-primary mb-0">Recordar
-                                            <input type="checkbox" checked>
+                                        <label class="checkbox-wrap checkbox-primary mb-0 cursor-pointer">Recordar
+                                            <input type="checkbox" name="remember" >
                                             <span class="checkmark"></span>
                                         </label>
                                     </div>

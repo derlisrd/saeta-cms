@@ -36,31 +36,40 @@ class PublicController extends Controller
         if($post){
             return view('Public.Posts.post',compact('post','site_name','site_description','menu'));
         }
-
         return abort(404);
+    }
 
+    public function article(Request $r){
+
+        $menu = Post::where('type','nav_menu_item')->get();
+        $post = Post::findOrFail($r->id);
+        $config = Config::where('option','site_name')->first();
+        $config2 = Config::where('option','site_description')->first();
+
+        $site_name = $config->value;
+        $site_description = $config2->value;
+
+        if($post){
+            return view('Public.Posts.post',compact('post','site_name','site_description','menu'));
+        }
+        return abort(404);
     }
 
 
     public function category (Request $r){
         $menu = Post::where('type','nav_menu_item')->get();
         $category = Category::where('slug',$r->slug)->first();
-
-
-
-
         if($category)
         {
             //dd($category->posts);
             $posts = Post::where('type','post')->where('category_id',$category->id)->orderBy('id','desc')->get();
             return view('Public.Posts.categories',compact('category','menu','posts'));
-
         }
-
-
         return abort(404);
-
     }
+
+
+
 
 
 }
