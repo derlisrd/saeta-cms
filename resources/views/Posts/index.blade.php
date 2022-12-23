@@ -5,6 +5,9 @@
 
 @section('container')
 
+<div class="container">
+
+
     <div class="row">
         <div class="col-12">
             <h1>Artículos</h1>
@@ -12,7 +15,9 @@
         <div class="col-12">
             <a href="{{ route('posts.create') }}" class="btn btn-outline-success my-3">Agregar</a>
         </div>
-        <div class="col-12">
+    </div>
+
+
 
             <table class="table table-hover">
                 <thead>
@@ -55,7 +60,6 @@
                 </tfoot>
             </table>
 
-        </div>
-    </div>
+</div>
 
 @endsection

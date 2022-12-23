@@ -4,6 +4,9 @@
 @section('title', 'Usuarios')
 
 @section('container')
+<div class="container">
+
+
 <div class="row">
     <div class="col-12">
         <h1>Usuarios</h1>
@@ -11,8 +14,11 @@
     <div class="col-12">
         <a href="{{ route('users.create') }}" class="btn btn-outline-success my-3">Agregar</a>
     </div>
-    <div class="col-12">
+</div>
 
+
+
+    <div class="table-responsive">
         <table class="table table-hover">
             <thead>
                 <tr class="table-dark">
@@ -47,10 +53,9 @@
                 </tr>
             </tfoot>
         </table>
-
     </div>
-</div>
 
+</div>
 @endsection
 
 @section('scripts')

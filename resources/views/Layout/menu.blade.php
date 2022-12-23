@@ -16,7 +16,7 @@
         </a>
 
 
-        <a href="{{ route('filemanager.view') }}" class="dashboard-nav-item"><i class="fas fa-file-upload"></i> Media </a>
+        <a href="{{ route('filemanager.view') }}" class="dashboard-nav-item {{ request()->routeIs('filemanager*') ? 'active' : '' }}"><i class="fas fa-file-upload"></i> Media </a>
 
 
         <div class='dashboard-nav-dropdown {{ request()->routeIs('posts*') ? 'show' : '' }}'>

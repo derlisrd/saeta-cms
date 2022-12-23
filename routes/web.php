@@ -48,7 +48,7 @@ Route::group(['prefix'=>'admin','middleware'=>['auth']],function(){
     Route::get('/users/create',[UsersController::class,'create'])->name('users.create');
     Route::post('/users',[UsersController::class,'store'])->name('users.store');
 
-    Route::view('/filemanager/datas','FileManager.index')->name('filemanager.view');
+    Route::view('/media','FileManager.index')->name('filemanager.view');
     Route::group(['prefix' => 'filemanager'], function () {\UniSharp\LaravelFilemanager\Lfm::routes();});
 
 

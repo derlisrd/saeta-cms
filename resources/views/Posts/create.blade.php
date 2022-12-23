@@ -39,7 +39,7 @@
                                 <i class="fa fa-image"></i>Elegir
                             </a>
                         </span>
-                        <input id="thumbnail" class="form-control" type="text" name="filepath">
+                        <input id="thumbnail" placeholder="url de imagen destacada" class="form-control" type="text" name="filepath">
                     </div>
                 </div>
 
@@ -65,12 +65,12 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <textarea class="form-control" name="description"></textarea>
-                            <small id="slugHelp" class="form-text text-muted">Descripción</small>
+                            <small  class="form-text text-muted">Descripción</small>
                         </div>
                         <div class="form-group">
                             <input id="slug" class="form-control mt-2" name="slug" value="{{ old('slug') }}"
                                 placeholder="Slug..." />
-                            <small id="slugHelp" class="form-text text-muted">alias para el ceo</small>
+                            <small  class="form-text text-muted">alias para el ceo</small>
                         </div>
                         <div class="form-group">
                             <label for="category_id" class="form-label font-weight-bold mt-1">Categoría: </label>
@@ -84,7 +84,7 @@
                             <label for="tags" class="form-label font-weight-bold mt-2">Tags: </label>
                             <input id="tags" class="form-control" name="tags" value="{{ old('tags') }}"
                                 placeholder="Noticias, fotografías,..." />
-                            <small id="slugHelp" class="form-text text-muted">Tags deben ir entre comas</small>
+                            <small  class="form-text text-muted">Tags deben ir entre comas</small>
                         </div>
 
                         <div class="form-group">

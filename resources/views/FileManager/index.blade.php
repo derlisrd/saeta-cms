@@ -4,7 +4,8 @@
 
 
 @section('container')
-
-<iframe src="/filemanager" style="width: 100%; height: 80vh; overflow: hidden; border: none;"></iframe>
+<div class="container-fluid">
+    <iframe src="/filemanager" style="width: 100%; height: 80vh; overflow: hidden; border: none;"></iframe>
+</div>
 
 @endsection

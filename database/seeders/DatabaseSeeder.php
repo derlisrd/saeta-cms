@@ -41,6 +41,10 @@ class DatabaseSeeder extends Seeder
             'option'=>'site_copyright',
             'value'=>'Copyright'
         ]);
+        Config::create([
+            'option'=>'site_template',
+            'value'=>'initial'
+        ]);
         // User::factory(10)->create();
     }
 }

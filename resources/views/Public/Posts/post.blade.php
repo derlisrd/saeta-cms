@@ -1,7 +1,13 @@
-@extends('Public.Layout.app')
+@extends(template_path('app'))
 
 
 @section('Title',$post->title)
+
+@section('metas')
+
+{!! htmlScriptTagJsApi(['lang'=>'es']) !!}
+
+@endsection
 
 @section('header')
 
@@ -41,5 +47,27 @@
     </div>
 </article>
 
-</div>
+    <div class="my-5 container-sm card p-3">
+        <form method="post" action="#" >
+            @csrf
+            {{-- {!! htmlFormSnippet() !!} --}}
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="mb-4">Deja tu comentario: </h3>
+                </div>
+                <div class="col-12 col-md-6">
+                    <input class="form-control mx-2" required name="name" placeholder="Nombre" />
+                </div>
+                <div class="col-12 col-md-6">
+                    <input class="form-control mx-2" required name="email" placeholder="Email" />
+                </div>
+                <div class="col-12">
+                    <label class="form-label mt-3">Comentario: </label>
+                    <textarea class="form-control"></textarea>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
 @endsection

@@ -36,3 +36,19 @@ function copyright(){
     $c = Config::where('option','site_copyright')->first();
     return $c->value;
 }
+function get_option(String $option_value){
+    $c = Config::where('option',$option_value)->first();
+    return $c->value;
+}
+
+function template_path($camino){
+    $c = Config::where('option','site_template')->first();
+
+    return 'Public.Layout.'.$c->value.'.'.$camino;
+}
+
+
+function public_assets($file){
+    $c = Config::where('option','site_template')->first();
+    return url("assets/$c->value/css/".$file);
+}

@@ -4,6 +4,7 @@
 @section('title', 'Menu')
 
 @section('container')
+<div class="container">
 <div class="row">
     <div class="col-12">
         <h1>Menú</h1>
@@ -51,7 +52,7 @@
 
     </div>
 </div>
-
+</div>
 @endsection
 @section('scripts')
 

@@ -1,4 +1,4 @@
-@extends('Public.Layout.app')
+@extends(template_path('app'))
 
 
 @section('Title',$category->title)
