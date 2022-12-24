@@ -13,10 +13,14 @@ class ConfigController extends Controller
         $sn = Config::where('option','site_name')->first();
         $sd = Config::where('option','site_description')->first();
         $sc = Config::where('option','site_copyright')->first();
+        $sc = Config::where('option','site_cover')->first();
+        $sf = Config::where('option','site_favicon')->first();
+        $site_favicon = $sf->value;
+        $site_cover = $sc->value;
         $site_name = $sn->value;
         $site_description = $sd->value;
         $site_copyright = $sc->value;
-        return view('Config.index',compact('site_name','site_description','site_copyright'));
+        return view('Config.index',compact('site_name','site_description','site_copyright','site_favicon','site_cover'));
 
     }
 

@@ -41,6 +41,18 @@
         </div>
     </div>
     <div class="col-12">
+        <div class="form-group mt-5">
+            <input class="form-control" name="site_cover" required value="{{ $site_cover }}" />
+            <small class="form-text text-muted">Portada del sitio</small>
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="form-group mt-5">
+            <input class="form-control" name="site_favicon" required value="{{ $site_favicon }}" />
+            <small class="form-text text-muted">Favicon del sitio</small>
+        </div>
+    </div>
+    <div class="col-12">
         <button type="submit" class="btn btn-outline-success mt-5">Guardar</button>
     </div>
 </div>

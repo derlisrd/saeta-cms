@@ -45,6 +45,14 @@ class DatabaseSeeder extends Seeder
             'option'=>'site_template',
             'value'=>'initial'
         ]);
+        Config::create([
+            'option'=>'site_favicon',
+            'value'=>''
+        ]);
+        Config::create([
+            'option'=>'site_cover',
+            'value'=>''
+        ]);
         // User::factory(10)->create();
     }
 }
