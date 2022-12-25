@@ -45,15 +45,26 @@
             <span class="input-group-btn">
                 <a id="lfm" data-input="thumbnail" data-preview="holder"
                     class="btn btn-primary text-white">
-                    <i class="fa fa-image"></i>Elegir
+                    <i class="fa fa-image"></i>Elegir portada
                 </a>
             </span>
-            <input id="thumbnail" placeholder="url de imagen destacada" class="form-control" type="text" name="site_cover">
+            <input id="thumbnail" placeholder="url de imagen destacada" class="form-control" type="text" value="{{ $site_cover ?? '' }}" name="site_cover">
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="input-group mt-3">
+            <span class="input-group-btn">
+                <a id="logo" data-input="thumbnail_logo" data-preview="holder"
+                    class="btn btn-primary text-white">
+                    <i class="fa fa-image"></i>Elegir logo
+                </a>
+            </span>
+            <input id="thumbnail_logo" placeholder="url de logo" class="form-control" type="text" value="{{ $site_logo ?? '' }}" name="site_logo">
         </div>
     </div>
     <div class="col-12">
         <div class="form-group mt-5">
-            <input class="form-control" name="site_favicon"  value="{{ $site_favicon }}" />
+            <input class="form-control" name="site_favicon"  value="{{ $site_favicon ?? '' }}" />
             <small class="form-text text-muted">Favicon del sitio</small>
         </div>
     </div>
@@ -70,6 +81,9 @@
 </script>
 <script>
     $('#lfm').filemanager('image', {
+        prefix: '/admin/filemanager'
+    });
+    $('#logo').filemanager('image', {
         prefix: '/admin/filemanager'
     });
 </script>
