@@ -38,7 +38,7 @@ function copyright(){
 }
 function get_option(String $option_value){
     $c = Config::where('option',$option_value)->first();
-    return $c->value;
+    return $c->value ?? '';
 }
 
 function template_path($camino){
