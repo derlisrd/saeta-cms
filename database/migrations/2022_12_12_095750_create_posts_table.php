@@ -29,10 +29,11 @@ class CreatePostsTable extends Migration
             $table->text('description')->nullable();
             $table->text('tags')->nullable();
             $table->string('slug')->unique()->nullable();
+            $table->string('url')->nullable();
             $table->longText('text')->nullable();
             $table->string('type')->default('post');
             $table->string('reference')->nullable();
-            $table->tinyInteger('status');
+            $table->tinyInteger('status')->comment('1 public 2 private 3 hide 4 pass 5 trash');
             $table->integer('menu_order')->nullable();
             $table->boolean('comment_status')->default(1);
             $table->string('password')->nullable();

@@ -32,6 +32,9 @@
                 <a href="{{ route('posts.category') }}" class="dashboard-nav-dropdown-item {{ request()->routeIs('posts.category') ? 'active' : '' }}">
                     <i class="fas fa-marker mx-1"></i>Categorías
                 </a>
+                <a href="{{ route('posts.trash') }}" class="dashboard-nav-dropdown-item {{ request()->routeIs('posts.trash') ? 'active' : '' }}">
+                    <i class="fas fa-trash mx-1"></i>Papelera
+                </a>
             </div>
         </div>
 

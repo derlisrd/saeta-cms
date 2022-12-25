@@ -18,10 +18,22 @@ class PostsController extends Controller
 
     public function index()
     {
-
         $posts = Post::
-        where('type', '=', 'post')
-        ->orWhere('type','=','page')
+        where([
+            ['type','<>','nav_menu_item'],
+            ['status','<>','5'],
+        ])
+        ->orderBy('id', 'desc')
+        ->get();
+        return view('Posts.index',compact('posts'));
+    }
+    public function trash()
+    {
+        $posts = Post::
+        where([
+            ['type','<>','nav_menu_item'],
+            ['status','=','5'],
+        ])
         ->orderBy('id', 'desc')
         ->get();
         return view('Posts.index',compact('posts'));

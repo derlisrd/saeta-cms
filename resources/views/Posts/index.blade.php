@@ -10,7 +10,7 @@
 
     <div class="row">
         <div class="col-12">
-            <h1>Artículos</h1>
+            <h1> {{ request()->routeIs('posts.trash') ? 'Papelera' : 'Artículos' }}</h1>
         </div>
         <div class="col-12">
             <a href="{{ route('posts.create') }}" class="btn btn-outline-success my-3">Agregar</a>

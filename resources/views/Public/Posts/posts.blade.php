@@ -32,15 +32,15 @@
         <div class="col-md-10 col-lg-10 col-xl-10">
             <!-- Post preview-->
             @foreach ($posts as $post)
-            <div class="d-flex flex-wrap justify-content-between gap-2" >
+            <div class="d-flex flex-wrap justify-content-center gap-2 w-100" >
+                @if($post->image_id)
                 <div class="rounded image-post">
-                    @if($post->image_id)
                     <a href="{{ route('public.post',$post->slug) }}">
                     <img class="border img-cover-posts p-1" src="{{ $post->images->url }}" width="200" />
                     </a>
-                    @endif
-
                 </div>
+                @endif
+
                 <div class="p-1" >
                     <a href="{{ route('public.post',$post->slug) }}">
                         <h2 class="post-title">{{ $post->title }}</h2>

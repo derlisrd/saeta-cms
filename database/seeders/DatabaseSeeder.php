@@ -53,6 +53,11 @@ class DatabaseSeeder extends Seeder
             'option'=>'site_cover',
             'value'=>''
         ]);
+        Config::create([
+            'option'=>'site_intro',
+            'value'=>'articles'
+        ]);
+
         // User::factory(10)->create();
     }
 }

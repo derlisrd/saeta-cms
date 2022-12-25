@@ -32,6 +32,7 @@ Route::group(['prefix'=>'admin','middleware'=>['auth']],function(){
 
     Route::group(['prefix'=>'posts'],function(){
         Route::get('/',[PostsController::class,'index'])->name('posts');
+        Route::get('/trash',[PostsController::class,'trash'])->name('posts.trash');
         Route::get('/create',[PostsController::class,'create'])->name('posts.create');
         Route::get('/edit/{id}',[PostsController::class,'edit'])->name('posts.edit');
         Route::post('/edit/{id}',[PostsController::class,'update'])->name('posts.update');
