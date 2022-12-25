@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Config;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ConfigController extends Controller
 {
@@ -37,6 +38,24 @@ class ConfigController extends Controller
         ->update(['value' => $r->site_name]);
         Config::where('option', 'site_copyright')
         ->update(['value' => $r->site_copyright]);
+        /* Config::where('option', 'site_favicon')
+        ->update(['value' => $r->site_favicon]);
+        Config::where('option', 'site_cover')
+        ->update(['value' => $r->site_cover]); */
+
+        DB::table('configs')
+        ->updateOrInsert(
+            ['option' => 'site_cover'],
+            ['value' => $r->site_favicon]
+        );
+
+        DB::table('configs')
+        ->updateOrInsert(
+            ['option' => 'site_cover'],
+            ['value' => $r->site_cover]
+        );
+
+
 
         return redirect()->route('config')->with('updated',true);
     }

@@ -11246,8 +11246,15 @@ header.masthead .site-heading .h1 {
     font-size: 2.25rem;
   }
 }
-
-
 .aligncenter{
     text-align: center;
+}
+
+.img-cover-posts {
+    max-width: 320px;
+    object-fit: cover;
+    max-height: 190px;
+}
+.image-post{
+    max-width: 320;
 }

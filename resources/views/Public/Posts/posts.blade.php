@@ -6,7 +6,7 @@
 @section('header')
 
 
-<header class="masthead">
+<header class="masthead" style=" @if(get_option('site_cover')) background-image: url('{{ get_option('site_cover') }}') @endif">
     <div class="container position-relative px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
@@ -29,24 +29,32 @@
 
 <div class="container px-4 px-lg-5">
     <div class="row gx-4 gx-lg-5 justify-content-center">
-        <div class="col-md-10 col-lg-8 col-xl-7">
+        <div class="col-md-10 col-lg-10 col-xl-10">
             <!-- Post preview-->
             @foreach ($posts as $post)
-            <div class="post-preview">
-                <a href="{{ route('public.post',$post->slug) }}">
-                    <h2 class="post-title">{{ $post->title }}</h2>
-                    <h3 class="post-subtitle">{{ $post->description }}</h3>
-                </a>
-                <p class="post-meta">
-                    Escrito por:
-                    <a href="#!">{{ $post->author->name }}</a>
-                    {{ $post->created_at->format('d-m-Y') }}
-                </p>
-                <p class="post-meta">
-                    En: {{ $post->category->title; }}
-                </p>
+            <div class="d-flex flex-wrap justify-content-between gap-2" >
+                <div class="rounded image-post">
+                    @if($post->image_id)
+                    <a href="{{ route('public.post',$post->slug) }}">
+                    <img class="border img-cover-posts p-1" src="{{ $post->images->url }}" width="200" />
+                    </a>
+                    @endif
 
-
+                </div>
+                <div class="p-1" >
+                    <a href="{{ route('public.post',$post->slug) }}">
+                        <h2 class="post-title">{{ $post->title }}</h2>
+                        <h3 class="post-subtitle">{{ $post->description }}</h3>
+                    </a>
+                    <p class="post-meta">
+                        Escrito por:
+                        <a href="#!">{{ $post->author->name }}</a>
+                        {{ $post->created_at->format('d-m-Y') }}
+                    </p>
+                    <p class="post-meta">
+                        En: {{ $post->category->title; }}
+                    </p>
+                </div>
             </div>
             <!-- Divider-->
             <hr class="my-4" />

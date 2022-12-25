@@ -41,14 +41,19 @@
         </div>
     </div>
     <div class="col-12">
-        <div class="form-group mt-5">
-            <input class="form-control" name="site_cover" required value="{{ $site_cover }}" />
-            <small class="form-text text-muted">Portada del sitio</small>
+        <div class="input-group mt-3">
+            <span class="input-group-btn">
+                <a id="lfm" data-input="thumbnail" data-preview="holder"
+                    class="btn btn-primary text-white">
+                    <i class="fa fa-image"></i>Elegir
+                </a>
+            </span>
+            <input id="thumbnail" placeholder="url de imagen destacada" class="form-control" type="text" name="site_cover">
         </div>
     </div>
     <div class="col-12">
         <div class="form-group mt-5">
-            <input class="form-control" name="site_favicon" required value="{{ $site_favicon }}" />
+            <input class="form-control" name="site_favicon"  value="{{ $site_favicon }}" />
             <small class="form-text text-muted">Favicon del sitio</small>
         </div>
     </div>
@@ -58,4 +63,14 @@
 </div>
 </div>
 </form>
+@endsection
+@section('scripts')
+<script>
+    {!! \File::get(base_path('vendor/unisharp/laravel-filemanager/public/js/stand-alone-button.js')) !!}
+</script>
+<script>
+    $('#lfm').filemanager('image', {
+        prefix: '/admin/filemanager'
+    });
+</script>
 @endsection
