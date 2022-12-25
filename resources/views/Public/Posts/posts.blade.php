@@ -27,42 +27,42 @@
 
 @section('postcontent')
 
-<div class="container px-4 px-lg-5">
-    <div class="row gx-4 gx-lg-5 justify-content-center">
-        <div class="col-md-10 col-lg-10 col-xl-10">
-            <!-- Post preview-->
-            @foreach ($posts as $post)
-            <div class="d-flex flex-wrap justify-content-center gap-2 w-100" >
-                @if($post->image_id)
-                <div class="rounded image-post">
+<div class="container">
+    <div class="row g-5">
+        @foreach ($posts as $post)
+        <div class="col-lg-4">
+            <div class="post-entry d-block small-post-entry-v">
+                <div class="thumbnail">
+                    @if($post->image_id)
                     <a href="{{ route('public.post',$post->slug) }}">
-                    <img class="border img-cover-posts p-1" src="{{ $post->images->url }}" width="200" />
+                        <img src="{{ $post->images->url }}" alt="Image" class="img-fluid">
                     </a>
+                    @endif
                 </div>
-                @endif
-
-                <div class="p-1" >
-                    <a href="{{ route('public.post',$post->slug) }}">
-                        <h2 class="post-title">{{ $post->title }}</h2>
-                        <h3 class="post-subtitle">{{ $post->description }}</h3>
+                <div class="content">
+                    <div class="post-meta mb-1">
+                        <a href="{{ route('public.category',$post->category->slug) }}" class="category"> {{ $post->category->title }} </a> -
+                        <span class="date">{{ $post->created_at->format('d-m-Y') }}</span>
+                    </div>
+                    <h2 class="heading mb-3"><a href="{{ route('public.post',$post->slug) }}">{{ $post->title }}</a></h2>
+                    <p>{{ $post->description }}</p>
+                    <a href="{{ route('public.post',$post->slug) }}" class="post-author d-flex align-items-center">
+                        <div class="author-pic">
+                            {{-- <img src="images/person_1.jpg" alt="Image"> --}}
+                        </div>
+                        <div class="text">
+                            <strong>{{ $post->author->name }}</strong>
+                            <span>Editor</span>
+                        </div>
                     </a>
-                    <p class="post-meta">
-                        Escrito por:
-                        <a href="#!">{{ $post->author->name }}</a>
-                        {{ $post->created_at->format('d-m-Y') }}
-                    </p>
-                    <p class="post-meta">
-                        En: {{ $post->category->title; }}
-                    </p>
                 </div>
             </div>
-            <!-- Divider-->
-            <hr class="my-4" />
-            @endforeach
-            <!-- Pager-->
-            <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Anteriores →</a></div>
         </div>
+        @endforeach
     </div>
 </div>
+
+
+
 
 @endsection
