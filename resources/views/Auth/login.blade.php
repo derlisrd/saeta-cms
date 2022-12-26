@@ -21,14 +21,11 @@
 <body>
 
     <div class="container">
+
         <div class="row justify-content-center">
-            <div class="col-md-6 text-center mb-5">
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-md-7 col-lg-5">
+            <div class="col-12 col-md-7 col-lg-5">
                 <div class="wrap">
-                    <div class="login-wrap p-4 p-md-5">
+                    <div class="login-wrap p-1 mt-5 p-md-5">
                         <div class="d-flex flex-column">
                             <div class="w-100">
                                 <h3 class="mb-4 text-center">Login</h3>
@@ -41,10 +38,10 @@
                         </div>
                         <form action="{{ route('login.submit') }}" method="post" >
                             @csrf
-                            <div class="card p-5 rounded">
+                            <div class="card p-4 p-md-5 rounded">
                                 <div class="form-group mt-3">
                                     <input autofocus type="text" name="email" value="{{ old('email') }}" class="form-control" required>
-                                    <small id="slugHelp" class="form-text text-muted">Email</small>
+                                    <small id="slugHelp" class="form-text text-muted">Email o username</small>
                                 </div>
                                 <div class="form-group mt-4">
                                     <input id="password-field" type="password" name="password" class="form-control" required>

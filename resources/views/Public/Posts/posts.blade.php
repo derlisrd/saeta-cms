@@ -44,15 +44,14 @@
                         <a href="{{ route('public.category',$post->category->slug) }}" class="category"> {{ $post->category->title }} </a> -
                         <span class="date">{{ $post->created_at->format('d-m-Y') }}</span>
                     </div>
-                    <h2 class="heading mb-3"><a href="{{ route('public.post',$post->slug) }}">{{ $post->title }}</a></h2>
+                    <h2 class="heading"><a href="{{ route('public.post',$post->slug) }}">{{ $post->title }}</a></h2>
                     <p>{{ $post->description }}</p>
                     <a href="{{ route('public.post',$post->slug) }}" class="post-author d-flex align-items-center">
                         <div class="author-pic">
                             {{-- <img src="images/person_1.jpg" alt="Image"> --}}
                         </div>
-                        <div class="text">
-                            <strong>{{ $post->author->name }}</strong>
-                            <span>Editor</span>
+                        <div>
+                            <small class="font-weight-light">Por: {{ $post->author->name }}</small>
                         </div>
                     </a>
                 </div>

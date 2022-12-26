@@ -59,9 +59,6 @@ class PostsController extends Controller
     {
         $user_id = Auth::id();
 
-
-
-
         $request->validate([
             'title'=> ['required'],
             'slug'=>['required'],
@@ -101,10 +98,6 @@ class PostsController extends Controller
     public function store(Request $request)
     {
         $user_id = Auth::id();
-
-
-
-
         $request->validate([
             'title'=> ['required'],
             'slug'=>['required'],
@@ -137,6 +130,14 @@ class PostsController extends Controller
 
 
         Post::create($datos); return redirect()->route('posts');
+    }
+
+
+    public function send_to_trash($id){
+        $p = Post::find($id);
+        $p->status = 5;
+        $p->save();
+        return redirect()->back()->with('send_trash',true);
     }
 
 

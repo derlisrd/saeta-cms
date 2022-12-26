@@ -33,6 +33,17 @@
             </div>
         </div>
         <div class="col-12">
+            <div class="input-group mt-3">
+                <span class="input-group-btn">
+                    <a id="lfm" data-input="thumbnail" data-preview="holder"
+                        class="btn btn-primary text-white">
+                        <i class="fa fa-image"></i>Elegir portada
+                    </a>
+                </span>
+                <input id="thumbnail" placeholder="url de imagen destacada" class="form-control" type="text" value="{{ $category->image }}" name="image">
+            </div>
+        </div>
+        <div class="col-12">
             <div class="form-group">
                 <label for="description" class="form-label mt-4">Descripción</label>
                 <textarea class="form-control" name="description" id="exampleTextarea" rows="3">{{ $category->description}}</textarea>
@@ -45,4 +56,15 @@
     </form>
 </div>
 
+@endsection
+
+@section('scripts')
+<script>
+    {!! \File::get(base_path('vendor/unisharp/laravel-filemanager/public/js/stand-alone-button.js')) !!}
+</script>
+<script>
+    $('#lfm').filemanager('image', {
+        prefix: '/admin/filemanager'
+    });
+</script>
 @endsection

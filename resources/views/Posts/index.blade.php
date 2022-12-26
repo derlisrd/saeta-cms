@@ -42,7 +42,11 @@
                         <td>{{ $p->author->name }}</td>
                         <td>
                             <a href="{{ route('posts.edit',$p->id) }}" class="btn btn-outline-info">Editar</a>
-                            <a href="#" class="btn btn-outline-danger">Borrar</a>
+                            <form action="{{ route('post.send_trash',$p->id) }}" class="d-inline formulario-eliminar" method="post" >
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-outline-danger">Borrar</button>
+                            </form>
                         </td>
                     </tr>
                     @endforeach
@@ -62,4 +66,26 @@
 
 </div>
 
+@endsection
+
+@section('scripts')
+    <script>
+        @if (session('send_trash'))
+            Swal.fire('Borrado!','Tu post ha sido enviado a la papelera','success')
+        @endif
+    </script>
+    <script>
+        $('.formulario-eliminar').submit(function(e){
+            e.preventDefault();
+            Swal.fire({
+            title: 'Borrar',
+            text:'Desea borrar este post?',
+            showCancelButton: true,
+            }).then((result) => {
+            if (result.isConfirmed) {
+                this.submit();
+            }
+            })
+        });
+    </script>
 @endsection

@@ -36,7 +36,7 @@
                         <td>{{ $c->description }}</td>
                         <td>
                             <a href="{{ route('posts.category.edit',$c->id) }}" class="btn btn-outline-info">Editar</a>
-                            <form action="{{ route('posts.delete',$c->id) }}" class="d-inline formulario-eliminar" method="post" >
+                            <form action="{{ route('category.delete',$c->id) }}" class="d-inline formulario-eliminar" method="post" >
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-outline-danger">Borrar</button>

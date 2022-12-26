@@ -30,7 +30,8 @@ class CategoryController extends Controller
         $datos = [
             'title'=> $r->title,
             'slug'=>preg_replace('([^A-Za-z0-9])', '-', $slug),
-            'description'=>$r->description
+            'description'=>$r->description,
+            'image'=>$r->image
         ];
 
         Category::create($datos); return redirect()->route('posts.category');
@@ -59,7 +60,7 @@ class CategoryController extends Controller
         $c->title = $r->title;
         $c->description = $r->description;
         $c->slug = preg_replace('([^A-Za-z0-9])', '-', $slug);
-
+        $c->image = $r->image;
         $c->save();
 
         return redirect()->route('posts.category');
