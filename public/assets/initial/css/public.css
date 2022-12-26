@@ -102,8 +102,8 @@ hr:not([size]) {
 }
 
 h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
-  margin-top: 0;
-  margin-bottom: 0.5rem;
+  margin-top: 0.8rem !important;
+  margin-bottom: 0.8rem !important;
   font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-weight: 800;
   line-height: 1.2;
@@ -11258,3 +11258,18 @@ header.masthead .site-heading .h1 {
 .image-post{
     max-width: 320;
 }
+.subheading{
+    font-size: 16px;
+    margin: 0;
+}
+.heading{
+    font-size: 20px;
+}
+.post-entry .post-meta .category,.post-entry .post-meta .date{
+    font-weight: 200; font-size: 16px;
+}
+.article-content p{
+    color: #6c757d;
+    font-size: 1.1rem;
+}
+
