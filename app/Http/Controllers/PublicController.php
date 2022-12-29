@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Config;
 use App\Models\Post;
 use Illuminate\Http\Request;
@@ -11,6 +12,32 @@ class PublicController extends Controller
 {
 
 
+    public function send_comment(Request $r){
+
+        $r->validate([
+            'email'=> ['required','email'],
+            'name'=>['required','alpha'],
+            'comment'=>['required'],
+            'post_id'=>['required'],
+        ]);
+
+
+        if(!$r->control==null){
+            return back()->withErrors('spam',true);
+        }
+
+        $datos = [
+            'post_id'=>$r->post_id,
+            'name'=>$r->name,
+            'email'=>$r->email,
+            'comment'=>$r->comment
+        ];
+
+        Comment::create($datos);
+
+        return redirect()->back()->with('comentado',true);
+
+    }
 
     public function index(){
         $menu = Post::where('type','nav_menu_item')->get();

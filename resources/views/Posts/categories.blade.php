@@ -64,6 +64,7 @@
         @if (session('eliminado'))
             Swal.fire('Borrado!','Tristin tu categoría ya se chingó a la chingadera. chau','success')
         @endif
+
     </script>
     <script>
         $('.formulario-eliminar').submit(function(e){

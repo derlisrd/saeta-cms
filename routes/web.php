@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ConfigController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MenuController;
@@ -8,10 +9,8 @@ use App\Http\Controllers\PostsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\UsersController;
-//use App\Http\Livewire\Config;
 use Illuminate\Support\Facades\Route;
-use Symfony\Component\HttpKernel\Profiler\Profile;
-use \UniSharp\LaravelFilemanager\Lfm;
+
 
 
 
@@ -20,7 +19,7 @@ Route::get('/',[PublicController::class,'index'])->name('public.index');
 Route::get('/post/{slug}',[PublicController::class,'post'])->name('public.post');
 Route::get('/page/{slug}',[PublicController::class,'post'])->name('public.page');
 Route::get('/category/{slug}',[PublicController::class,'category'])->name('public.category');
-
+Route::post('/send_comment',[PublicController::class,'send_comment'])->name('send_comment');
 
 
 Route::redirect('/login','/admin');
@@ -44,6 +43,9 @@ Route::group(['prefix'=>'admin','middleware'=>['auth']],function(){
         Route::delete('/post/trash/{id}',[PostsController::class,'send_to_trash'])->name('post.send_trash');
         Route::get('/category/edit/{id}',[CategoryController::class,'category_edit'])->name('posts.category.edit');
         Route::post('/category/edit/{id}',[CategoryController::class,'category_update'])->name('posts.category.update');
+        Route::get('/comments',[CommentController::class,'index'])->name('posts.comments');
+        Route::post('/comments/{id}',[CommentController::class,'aproved'])->name('comment.aproved');
+        Route::delete('/comment/{id}',[CommentController::class,'destroy'])->name('comment.delete');
     });
 
     Route::get('/users',[UsersController::class,'index'])->name('users');
@@ -71,4 +73,4 @@ Route::group(['prefix'=>'admin','middleware'=>['auth']],function(){
 });
 
 
-Route::view('testing','Test.index');
+

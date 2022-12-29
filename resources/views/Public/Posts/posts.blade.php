@@ -28,9 +28,9 @@
 @section('postcontent')
 
 <div class="container mb-5">
-    <div class="row g-5">
+    <div class="row gap-2">
         @foreach ($posts as $post)
-        <div class="col-lg-4">
+        <div class="col-12 col-lg-4 mb-5">
             <div class="post-entry d-block small-post-entry-v">
                 @if($post->image_id)
                 <div class="thumbnail p-1 border rounded">

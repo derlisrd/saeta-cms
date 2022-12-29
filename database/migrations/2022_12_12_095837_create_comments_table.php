@@ -17,9 +17,10 @@ class CreateCommentsTable extends Migration
             $table->id();
             $table->foreignId('user_id')->nullable()->constrained('users')->cascadeOnUpdate()->nullOnDelete();
             $table->foreignId('post_id')->nullable()->constrained('posts')->cascadeOnUpdate()->nullOnDelete();
-            $table->string('name');
-            $table->string('email');
-            $table->text('comment');
+            $table->string('name')->nullable();
+            $table->string('email')->nullable();
+            $table->text('comment')->nullable();
+            $table->boolean('aproved')->default(0);
             $table->timestamps();
         });
     }

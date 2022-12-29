@@ -26,6 +26,11 @@
                         <a href="#!">{{ $post->author->name }}</a>
                         {{ $post->created_at->format('d-m-Y') }}
                     </span>
+                    <span class="meta">
+
+                        <a href="{{ route('public.category',$post->category->slug) }}">{{ $post->category->title }}</a>
+
+                    </span>
                 </div>
             </div>
         </div>
@@ -47,30 +52,63 @@
     </div>
 </article>
 
-    <div class="my-5 container-sm p-3 rounded border">
-        <form method="post" action="#" >
-            @csrf
-            {{-- {!! htmlFormSnippet() !!} --}}
-            <div class="row gap-3">
-                <div class="col-12">
-                    <h3 class="mb-4">Deja tu comentario: </h3>
+    @if($post->comment_status)
+        <div class="container-md mb-3 p-3">
+            <h4>Comentarios: </h4>
+            @foreach ($post->comments as $comment)
+                @if($comment->aproved)
+                <div class="border p-2 mb-2">
+                    <small>{{ $comment->name }} dijo: </small>
+                    <br />
+                    <small>{{ $comment->comment }}</small>
                 </div>
-                <div class="col-12 col-md-6">
-                    <input class="form-control form-control-lg mx-2" required name="name" placeholder="Nombre" />
-                </div>
-                <div class="col-12 col-md-6">
-                    <input class="form-control form-control-lg mx-2" required name="email" placeholder="Email" />
-                </div>
-                <div class="col-12">
-                    <label class="form-label mt-3">Comentario: </label>
-                    <textarea class="form-control form-control-lg"></textarea>
-                </div>
-                <div class="col-12">
-                    <button class="btn btn-primary rounded">Enviar</button>
-                </div>
-            </div>
-        </form>
-    </div>
+                @endif
+            @endforeach
+        </div>
 
 
+        <div class="container-md mb-4">
+            <form method="post" action="{{ route('send_comment') }}">
+                <input type="hidden" value="{{ $post->id }}" name="post_id" />
+                @csrf
+                <div style="display: none;">
+                    <label for="control">Este es un campo de control. Si lo ves, ignoralo.</label>
+                    <input type="text" id="control" name="control" />
+                </div>
+                <div class="card mx-2 rounded-3">
+                    <div class="card-body">
+                        <h5 class="card-title text-muted">Deja un comentario</h5>
+                            @if ($errors->any())
+                                <div class="alert alert-info d-block">
+                                    @foreach ($errors->all() as $error)
+                                        <small>{{ $error }}</small>
+                                    @endforeach
+                                </div>
+                            @endif
+                            <div class="form-group mb-3">
+                                <input name="name" class="form-control rounded" value="{{ old('name') }}" id="name" aria-describedby="name" placeholder="Nombre">
+                            </div>
+                            <div class="form-group mb-3">
+                                <input class="form-control rounded" id="email" value="{{ old('email') }}" name="email" aria-describedby="email" placeholder="Email">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="comment" style="font-size: 1rem">Comentario:</label>
+                                    <textarea class="form-control rounded" id="comment" name="comment" rows="3"></textarea>
+                            </div>
+                        <button type="submit" class="btn btn-primary rounded">Comentar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    @endif
+
+@endsection
+
+@section('scripts')
+<script>
+    @if (session('comentado'))
+        alert('Gracias por dejar tu comentario. En breve será moderado');
+    @endif
+
+</script>
 @endsection
