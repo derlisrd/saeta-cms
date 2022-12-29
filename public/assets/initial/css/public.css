@@ -11141,6 +11141,9 @@ header.masthead .page-heading,
 header.masthead .post-heading,
 header.masthead .site-heading {
   color: #fff;
+  background: #1e1e1ed1;
+    padding: 1rem;
+    border-radius: 1rem;
 }
 header.masthead .page-heading,
 header.masthead .site-heading {
