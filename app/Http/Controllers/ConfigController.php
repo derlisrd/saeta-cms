@@ -53,7 +53,7 @@ class ConfigController extends Controller
 
         DB::table('configs')
         ->updateOrInsert(
-            ['option' => 'site_cover'],
+            ['option' => 'site_favicon'],
             ['value' => $r->site_favicon]
         );
 
