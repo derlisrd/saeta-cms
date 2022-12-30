@@ -35,18 +35,9 @@
 
     <div class="col-12 col-md-6 mt-3">
         <h4>Tipo de página inicial: </h4>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" value="articles" @if($site_intro=='articles') checked @endif name="site_intro" id="articles_type">
-            <label class="form-check-label cursor-pointer" for="articles_type">
-              Artículos
-            </label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" value="article" @if($site_intro=='article') checked @endif name="site_intro" id="article_type">
-            <label class="form-check-label cursor-pointer" for="article_type">
-              Un sólo artículo
-            </label>
-        </div>
+        @livewire('configpost')
+
+
     </div>
 
     <div class="col-12">

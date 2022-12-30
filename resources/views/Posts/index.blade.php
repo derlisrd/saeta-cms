@@ -23,12 +23,12 @@
                 <thead>
                     <tr class="table-dark">
                         <th>ID</th>
-                        <th scope="row">Título</th>
+                        <th >Título</th>
                         <td>Categoría</td>
                         <td>Tipo</td>
                         <td>Status</td>
                         <td>Autor</td>
-                        <td>Acciones</td>
+                        <td scope="row">Acciones</td>
                     </tr>
                 </thead>
                 <tbody>
@@ -41,11 +41,12 @@
                         <td>{{ $p->status == '1' ? 'Publicado' : 'No publicado' }} </td>
                         <td>{{ $p->author->name }}</td>
                         <td>
-                            <a href="{{ route('posts.edit',$p->id) }}" class="btn btn-outline-info">Editar</a>
+                            <a target="_blank" href="{{ route('view.post',$p->id) }}" class="btn btn-success btn-sm">Ver</a>
+                            <a href="{{ route('posts.edit',$p->id) }}" class="btn btn-info btn-sm">Editar</a>
                             <form action="{{ route('post.send_trash',$p->id) }}" class="d-inline formulario-eliminar" method="post" >
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-outline-danger">Borrar</button>
+                                <button type="submit" class="btn btn-danger btn-sm">Borrar</button>
                             </form>
                         </td>
                     </tr>
@@ -54,12 +55,12 @@
                 <tfoot>
                     <tr class="table-dark">
                         <th>ID</th>
-                        <th scope="row">Título</th>
+                        <th >Título</th>
                         <td>Categoría</td>
                         <td>Tipo</td>
                         <td>Status</td>
                         <td>Autor</td>
-                        <td>Acciones</td>
+                        <td scope="row">Acciones</td>
                     </tr>
                 </tfoot>
             </table>

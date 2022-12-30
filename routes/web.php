@@ -27,9 +27,12 @@ Route::redirect('/login','/admin');
 Route::view('/admin','Auth.login')->name('login')->middleware('guest');
 Route::post('/admin',[LoginController::class,'login'])->name('login.submit')->middleware("guest");
 
-Route::group(['prefix'=>'admin','middleware'=>['auth']],function(){
-    Route::get('home',[HomeController::class,'index'])->name('home');
+Route::get('/view_post/{id}',[PublicController::class,'view_post'])->name('view.post');
 
+Route::group(['prefix'=>'admin','middleware'=>['auth']],function(){
+
+
+    Route::get('home',[HomeController::class,'index'])->name('home');
     Route::group(['prefix'=>'posts'],function(){
         Route::get('/',[PostsController::class,'index'])->name('posts');
         Route::get('/trash',[PostsController::class,'trash'])->name('posts.trash');
@@ -68,7 +71,6 @@ Route::group(['prefix'=>'admin','middleware'=>['auth']],function(){
     Route::get('/profile',[ProfileController::class,'index'])->name('profile');
     Route::post('/profile',[ProfileController::class,'update'])->name('profile.update');
     Route::post('/profile/pass',[ProfileController::class,'pass'])->name('profile.save.pass');
-
 
     Route::get("logout",[LoginController::class,'logout'])->name("logout");
 });

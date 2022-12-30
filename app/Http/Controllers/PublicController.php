@@ -7,9 +7,25 @@ use App\Models\Comment;
 use App\Models\Config;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PublicController extends Controller
 {
+
+
+    public function view_post($id){
+
+        if(Auth::user()){
+            $menu = Post::where('type','nav_menu_item')->get();
+            $post = Post::findOrFail($id);
+
+            if($post){
+                return view('Public.Posts.post',compact('post','menu'));
+            }
+
+        }
+        return abort(404);
+    }
 
 
     public function send_comment(Request $r){
@@ -40,28 +56,38 @@ class PublicController extends Controller
     }
 
     public function index(){
-        $menu = Post::where('type','nav_menu_item')->get();
-        $posts = Post::where('type','post')->where('status',1)->orderBy('id','desc')->get();
-        $config = Config::where('option','site_name')->first();
-        $config2 = Config::where('option','site_description')->first();
 
-        $site_name = $config->value;
-        $site_description = $config2->value;
-        return view('Public.Posts.posts',compact('posts','site_name','site_description','menu'));
+        $intro = get_option('site_intro');
+        $menu = Post::where('type','nav_menu_item')->get();
+
+        if($intro == 'posts')
+        {
+            $posts = Post::where('type','post')->where('status',1)->orderBy('id','desc')->get();
+            return view('Public.Posts.posts',compact('posts','menu'));
+        }
+
+        if($intro == 'post'){
+            $post_id = get_option('site_home_post_id');
+            $post = Post::findOrFail($post_id);
+
+
+            if($post){
+                return view('Public.Posts.post',compact('post','menu'));
+            }
+            return abort(404);
+        }
+
+
+
     }
 
     public function post(Request $r){
 
         $menu = Post::where('type','nav_menu_item')->get();
         $post = Post::where('slug',$r->slug)->first();
-        $config = Config::where('option','site_name')->first();
-        $config2 = Config::where('option','site_description')->first();
-
-        $site_name = $config->value;
-        $site_description = $config2->value;
 
         if($post){
-            return view('Public.Posts.post',compact('post','site_name','site_description','menu'));
+            return view('Public.Posts.post',compact('post','menu'));
         }
         return abort(404);
     }
@@ -70,14 +96,10 @@ class PublicController extends Controller
 
         $menu = Post::where('type','nav_menu_item')->get();
         $post = Post::findOrFail($r->id);
-        $config = Config::where('option','site_name')->first();
-        $config2 = Config::where('option','site_description')->first();
 
-        $site_name = $config->value;
-        $site_description = $config2->value;
 
         if($post){
-            return view('Public.Posts.post',compact('post','site_name','site_description','menu'));
+            return view('Public.Posts.post',compact('post','menu'));
         }
         return abort(404);
     }

@@ -18,6 +18,7 @@ class ConfigController extends Controller
         $sf = Config::where('option','site_favicon')->first();
         $slogo = Config::where('option','site_logo')->first();
         $si = Config::where('option','site_intro')->first();
+        $shome_post_id = Config::where('option','site_home_post_id')->first();
 
         $datas = [
         'site_intro' => $si->value ?? '',
@@ -27,6 +28,7 @@ class ConfigController extends Controller
         'site_description' => $sd->value,
         'site_copyright' => $sc->value,
         'site_logo' => $slogo->value ?? '',
+        'site_home_post_id' => $shome_post_id->value
         ];
 
         return view('Config.index',$datas);
@@ -46,10 +48,11 @@ class ConfigController extends Controller
         ->update(['value' => $r->site_name]);
         Config::where('option', 'site_copyright')
         ->update(['value' => $r->site_copyright]);
-        /* Config::where('option', 'site_favicon')
-        ->update(['value' => $r->site_favicon]);
-        Config::where('option', 'site_cover')
-        ->update(['value' => $r->site_cover]); */
+
+        //Config::where('option', 'site_favicon')
+        //->update(['value' => $r->site_favicon]);
+        //Config::where('option', 'site_cover')
+        //->update(['value' => $r->site_cover]);
 
         DB::table('configs')
         ->updateOrInsert(
@@ -75,6 +78,11 @@ class ConfigController extends Controller
         );
 
 
+        DB::table('configs')
+        ->updateOrInsert(
+            ['option' => 'site_home_post_id'],
+            ['value' => $r->site_home_post_id]
+        );
 
         return redirect()->route('config')->with('updated',true);
     }
