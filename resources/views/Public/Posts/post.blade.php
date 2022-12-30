@@ -86,14 +86,14 @@
                                 </div>
                             @endif
                             <div class="form-group mb-3">
-                                <input name="name" class="form-control rounded" value="{{ old('name') }}" id="name" aria-describedby="name" placeholder="Nombre">
+                                <input name="name" class="form-control rounded @error('name') is-invalid @enderror" value="{{ old('name') }}" id="name" aria-describedby="name" placeholder="Nombre">
                             </div>
                             <div class="form-group mb-3">
-                                <input class="form-control rounded" id="email" value="{{ old('email') }}" name="email" aria-describedby="email" placeholder="Email">
+                                <input class="form-control rounded @error('email') is-invalid @enderror" id="email" value="{{ old('email') }}" name="email" aria-describedby="email" placeholder="Email">
                             </div>
                             <div class="form-group mb-3">
                                 <label for="comment" style="font-size: 1rem">Comentario:</label>
-                                    <textarea class="form-control rounded" id="comment" name="comment" rows="3"></textarea>
+                                    <textarea class="form-control rounded @error('comment') is-invalid @enderror" id="comment" name="comment" rows="3"></textarea>
                             </div>
                         <button type="submit" class="btn btn-primary rounded">Comentar</button>
                     </div>

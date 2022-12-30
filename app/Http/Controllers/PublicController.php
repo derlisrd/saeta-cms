@@ -16,7 +16,7 @@ class PublicController extends Controller
 
         $r->validate([
             'email'=> ['required','email'],
-            'name'=>['required','alpha'],
+            'name'=>['required'],
             'comment'=>['required'],
             'post_id'=>['required'],
         ]);

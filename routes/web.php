@@ -3,6 +3,7 @@
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ConfigController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\PostsController;
@@ -27,7 +28,7 @@ Route::view('/admin','Auth.login')->name('login')->middleware('guest');
 Route::post('/admin',[LoginController::class,'login'])->name('login.submit')->middleware("guest");
 
 Route::group(['prefix'=>'admin','middleware'=>['auth']],function(){
-    Route::view('home','Home.index')->name('home');
+    Route::get('home',[HomeController::class,'index'])->name('home');
 
     Route::group(['prefix'=>'posts'],function(){
         Route::get('/',[PostsController::class,'index'])->name('posts');
