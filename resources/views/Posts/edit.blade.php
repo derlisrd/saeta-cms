@@ -78,6 +78,10 @@
                             <small id="slugHelp" class="form-text text-muted">Descripción</small>
                         </div>
                         <div class="form-group">
+                            <input type="color" class="cursor-pointer" id="html5colorpicker" name="bgcolor" value="{{ $post->bgcolor ?? '#fff' }}" />
+                            <small  class="form-text text-muted">Color</small>
+                        </div>
+                        <div class="form-group">
                             <input  id="slug" class="form-control mt-2" name="slug" value="{{ $post->slug }}" placeholder="Slug..." />
                             <small id="slugHelp" class="form-text text-muted">alias para el ceo</small>
                         </div>
