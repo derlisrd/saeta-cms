@@ -16,7 +16,7 @@
         <meta name="description" content="@yield('description',get_option('site_description'))" />
         <link href="{{ public_assets('public.css') }}" rel="stylesheet">
         <link href="{{ public_assets('wp.css') }}" rel="stylesheet">
-
+        <link rel="canonical" href="@yield('canonical',URL(''))" />
         @yield('metas')
         <meta name="csrf-token" content="{{ csrf_token() }}">
     </head>

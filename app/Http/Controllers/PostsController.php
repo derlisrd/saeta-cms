@@ -58,10 +58,11 @@ class PostsController extends Controller
     public function update(Request $request)
     {
 
+        $id = $request->id;
 
         $request->validate([
             'title'=> ['required'],
-            'slug'=>['required'],
+            'slug'=>['required',"unique:post,slug,except,$id"],
             'category_id'=>['required'],
             'type'=>['required'],
             'status'=>['required'],
@@ -100,7 +101,7 @@ class PostsController extends Controller
         $user_id = Auth::id();
         $request->validate([
             'title'=> ['required'],
-            'slug'=>['required'],
+            'slug'=>['required','unique:posts,slug'],
             'category_id'=>['required'],
             'type'=>['required'],
             'status'=>['required'],
