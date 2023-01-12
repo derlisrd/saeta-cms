@@ -13,11 +13,21 @@
 
 @section('container')
 
-    <form action="{{ route('posts.update',$post->id) }}" id="update-form" method="post">
+    <form action="{{ route('post.update',$post->id) }}" id="update-form" method="post">
+        @method('put')
         @csrf
         <div class="container">
 
             <div class="row">
+                <div class="col-12">
+                    @if ($errors->any())
+                        <div class="alert alert-info d-block">
+                            @foreach ($errors->all() as $error)
+                                <p>{{ $error }}</p>
+                            @endforeach
+                        </div>
+                    @endif
+                </div>
                 <div class="col-12">
                     @if (session()->has('updated'))
                     <div class="alert alert-success">

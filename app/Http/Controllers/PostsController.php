@@ -62,12 +62,14 @@ class PostsController extends Controller
 
         $request->validate([
             'title'=> ['required'],
-            'slug'=>['required',"unique:posts,slug,except,id"],
+            'slug'=>['required',"unique:posts,slug,$id"],
             'category_id'=>['required'],
             'type'=>['required'],
             'status'=>['required'],
             'comment_status'=>['required'],
         ]);
+
+
         $slug = $request->slug ? str_replace(" ", "-", strtolower($request->slug)) : strtolower($request->slug);
         $image_id = null;
         if($request->filepath){
@@ -88,7 +90,6 @@ class PostsController extends Controller
             'text'=>$request->text
         ];
         Post::where('id',$request->id)->update($datos);
-
         return redirect()->back()->with('updated',true);
     }
 

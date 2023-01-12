@@ -55,7 +55,15 @@ class DatabaseSeeder extends Seeder
         ]);
         Config::create([
             'option'=>'site_intro',
-            'value'=>'articles'
+            'value'=>'posts'
+        ]);
+        Config::create([
+            'option'=>'site_logo',
+            'value'=>null
+        ]);
+        Config::create([
+            'option'=>'site_home_post_id',
+            'value'=>'1'
         ]);
 
         // User::factory(10)->create();

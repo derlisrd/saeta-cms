@@ -15,8 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/article/{id}',[PublicController::class,'article'])->name('public.article');
 Route::get('/',[PublicController::class,'index'])->name('public.index');
+Route::get('/article/{id}',[PublicController::class,'article'])->name('public.article');
 Route::get('/post/{slug}',[PublicController::class,'post'])->name('public.post');
 Route::get('/page/{slug}',[PublicController::class,'post'])->name('public.page');
 Route::get('/category/{slug}',[PublicController::class,'category'])->name('public.category');
@@ -38,7 +38,7 @@ Route::group(['prefix'=>'admin','middleware'=>['auth']],function(){
         Route::get('/trash',[PostsController::class,'trash'])->name('posts.trash');
         Route::get('/create',[PostsController::class,'create'])->name('posts.create');
         Route::get('/edit/{id}',[PostsController::class,'edit'])->name('posts.edit');
-        Route::post('/edit/{id}',[PostsController::class,'update'])->name('posts.update');
+        Route::put('/edit/{id}',[PostsController::class,'update'])->name('post.update');
         Route::post('/store',[PostsController::class,'store'])->name('posts.store');
         Route::get('/category',[PostsController::class,'category'])->name('posts.category');
         Route::get('/category/create',[CategoryController::class,'create'])->name('posts.category.create');
