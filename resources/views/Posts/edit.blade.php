@@ -229,7 +229,7 @@ const mediaUploaded = ({
 </script>
 
 <script>
-$( document ).ready(function() {
+$(function() {
     setInterval(()=>{
         $('#update-form').submit()
     }, 50000)

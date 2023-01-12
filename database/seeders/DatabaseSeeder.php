@@ -20,10 +20,10 @@ class DatabaseSeeder extends Seeder
         User::create([
             'name'=>'Administrador',
             'username'=>'admin',
-            'email'=>'admin@saetacms.com',
+            'email'=>env('USER_INITIAL'),
             'type'=>0,
             'active'=>true,
-            'password'=>Hash::make('admin123')
+            'password'=>Hash::make(env('PASS_INITIAL'))
         ]);
         Category::create([
             'title'=>'Sin categoría',
