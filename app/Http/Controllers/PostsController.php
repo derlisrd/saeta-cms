@@ -62,7 +62,7 @@ class PostsController extends Controller
 
         $request->validate([
             'title'=> ['required'],
-            'slug'=>['required',"unique:post,slug,except,$id"],
+            'slug'=>['required',"unique:posts,slug,except,id"],
             'category_id'=>['required'],
             'type'=>['required'],
             'status'=>['required'],
@@ -131,7 +131,9 @@ class PostsController extends Controller
         ];
 
 
-        Post::create($datos); return redirect()->route('posts');
+        $post = Post::create($datos);
+
+        return redirect()->route('posts.edit',$post->id)->with('new_post',true);
     }
 
 

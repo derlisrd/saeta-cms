@@ -26,18 +26,18 @@
                     </div>
                 </div>
                 <div class="col-12 col-md-4">
-                    <button type="submit" class="btn btn-success my-3">Publicar</button>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal1">
+                    <button type="submit" class="btn btn-success rounded my-3">Publicar</button>
+                    <button type="button" class="btn btn-primary rounded" data-toggle="modal" data-target="#modal1">
                         Config
                     </button>
                 </div>
                 <div class="col-12">
                     <div class="input-group mt-3">
                         <span class="input-group-btn">
-                            <a id="lfm" data-input="thumbnail" data-preview="holder"
-                                class="btn btn-primary text-white">
+                            <span role="button" id="lfm" data-input="thumbnail" data-preview="holder"
+                                class="btn btn-primary text-white rounded">
                                 <i class="fa fa-image"></i>Elegir
-                            </a>
+                            </span>
                         </span>
                         <input id="thumbnail" placeholder="url de imagen destacada" class="form-control" type="text" name="filepath">
                     </div>
@@ -103,7 +103,7 @@
                             <label for="exampleSelect1" class="form-label font-weight-bold mt-2">Estado: </label>
                             <select class="form-select" name="status">
                                 <option value="1">Publicado</option>
-                                <option value="2">Privado</option>
+                                <option selected value="2">Privado</option>
                                 <option value="3">Oculto</option>
                                 <option value="4">Contraseña</option>
                             </select>

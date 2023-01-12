@@ -13,7 +13,7 @@
 
 @section('container')
 
-    <form action="{{ route('posts.update',$post->id) }}" method="post">
+    <form action="{{ route('posts.update',$post->id) }}" id="update-form" method="post">
         @csrf
         <div class="container">
 
@@ -227,4 +227,19 @@ const mediaUploaded = ({
         document.getElementById('slug').value = title.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     }
 </script>
+
+<script>
+$( document ).ready(function() {
+    setInterval(()=>{
+        $('#update-form').submit()
+    }, 50000)
+
+});
+</script>
+<script>
+    @if (session('new_post'))
+        Swal.fire('Creado!','Tu post ha sido creado','success')
+    @endif
+</script>
+
 @endsection
