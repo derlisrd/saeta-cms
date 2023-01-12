@@ -32,8 +32,8 @@
                     </div>
                 </div>
                 <div class="col-12 col-md-4">
-                    <button type="submit" class="btn btn-success my-3">Actualizar</button>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal1">
+                    <button type="submit" class="btn btn-success rounded my-3">Actualizar</button>
+                    <button type="button" class="btn btn-primary rounded" data-toggle="modal" data-target="#modal1">
                         Config
                     </button>
                 </div>
@@ -41,10 +41,10 @@
                 <div class="col-12">
                     <div class="input-group mt-3">
                         <span class="input-group-btn">
-                            <a id="lfm" data-input="thumbnail" data-preview="holder"
-                                class="btn btn-primary text-white">
+                            <span role="button" id="lfm" data-input="thumbnail" data-preview="holder"
+                                class="btn btn-primary rounded text-white">
                                 <i class="fa fa-image"></i>Elegir
-                            </a>
+                            </span>
                         </span>
                         <input id="thumbnail" class="form-control" type="text" name="filepath" value="@if($post->image_id) {{ $post->images->url}} @endif">
                     </div>
@@ -78,7 +78,7 @@
                             <small id="slugHelp" class="form-text text-muted">Descripción</small>
                         </div>
                         <div class="form-group">
-                            <input type="color" class="cursor-pointer" id="html5colorpicker" name="bgcolor" value="{{ $post->bgcolor ?? '#fff' }}" />
+                            <input type="color" class="cursor-pointer" id="html5colorpicker" name="bgcolor" value="{{ $post->bgcolor ?? '#ffffff' }}" />
                             <small  class="form-text text-muted">Color</small>
                         </div>
                         <div class="form-group">

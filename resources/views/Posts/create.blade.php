@@ -68,7 +68,7 @@
                             <small  class="form-text text-muted">Descripción</small>
                         </div>
                         <div class="form-group">
-                            <input type="color" class="cursor-pointer" id="html5colorpicker" name="bgcolor" value="#000" />
+                            <input type="color" class="cursor-pointer" id="html5colorpicker" name="bgcolor" value="#000000" />
                             <small  class="form-text text-muted">Color</small>
                         </div>
                         <div class="form-group">
