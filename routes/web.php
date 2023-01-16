@@ -39,6 +39,7 @@ Route::group(['prefix'=>'admin','middleware'=>['auth']],function(){
         Route::get('/create',[PostsController::class,'create'])->name('posts.create');
         Route::get('/edit/{id}',[PostsController::class,'edit'])->name('posts.edit');
         Route::put('/edit/{id}',[PostsController::class,'update'])->name('post.update');
+        Route::post('/edit/{id}',[PostsController::class,'update_ajax'])->name('post.update.ajax');
         Route::post('/store',[PostsController::class,'store'])->name('posts.store');
         Route::get('/category',[PostsController::class,'category'])->name('posts.category');
         Route::get('/category/create',[CategoryController::class,'create'])->name('posts.category.create');

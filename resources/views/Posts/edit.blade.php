@@ -5,9 +5,6 @@
 
 @section('styles')
 <link rel="stylesheet" href="{{asset('vendor/laraberg/css/laraberg.css')}}">
-
-<meta name="csrf-token" content="{{ csrf_token() }}">
-
 @endsection
 
 
@@ -241,8 +238,25 @@ const mediaUploaded = ({
 <script>
 $(function() {
     setInterval(()=>{
-        $('#update-form').submit()
-    }, 50000)
+
+
+        $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+        });
+        var text = $("#editor1").val();
+        var title = $("input[name=title]").val();
+        $.ajax({
+           type:'POST',
+           url:'{{ route('post.update.ajax',$post->id) }}',
+           data:{'text':text,'title':title,'id': {{ $post->id }} },
+           success:function(data){
+              console.log(data);
+           }
+        });
+
+    }, 30000)
 
 });
 </script>

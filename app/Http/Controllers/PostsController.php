@@ -16,6 +16,25 @@ class PostsController extends Controller
         return view('Posts.categories',compact('categories'));
     }
 
+    public function update_ajax(Request $r){
+
+
+        $id = $r->id;
+        $post = Post::find($id);
+
+        $r->validate([
+            'title'=> ['required'],
+        ]);
+        $post->title = $r->title;
+        $post->text = $r->text;
+        $post->update();
+
+        return response()->json([
+            "id"=>$id
+        ]);
+    }
+
+
     public function index()
     {
         $posts = Post::
