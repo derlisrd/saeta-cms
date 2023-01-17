@@ -9,6 +9,7 @@ use App\Http\Controllers\MenuController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PublicController;
+use App\Http\Controllers\SiteMapController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,7 +22,7 @@ Route::get('/post/{slug}',[PublicController::class,'post'])->name('public.post')
 Route::get('/page/{slug}',[PublicController::class,'post'])->name('public.page');
 Route::get('/category/{slug}',[PublicController::class,'category'])->name('public.category');
 Route::post('/send_comment',[PublicController::class,'send_comment'])->name('send_comment');
-
+Route::get('/sitemap.xml',[SiteMapController::class,'index'])->name('sitemap');
 
 Route::redirect('/login','/admin');
 Route::view('/admin','Auth.login')->name('login')->middleware('guest');
