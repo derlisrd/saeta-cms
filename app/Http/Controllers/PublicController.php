@@ -111,7 +111,10 @@ class PublicController extends Controller
         if($category)
         {
             //dd($category->posts);
-            $posts = Post::where('type','post')->where('category_id',$category->id)->orderBy('id','desc')->get();
+            $posts = Post::where('type','post')->where([
+                ['category_id','=',$category->id],
+                ['status','=',1],
+                ])->orderBy('id','desc')->get();
             return view('Public.Posts.categories',compact('category','menu','posts'));
         }
         return abort(404);
