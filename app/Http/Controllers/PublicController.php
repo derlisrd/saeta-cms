@@ -55,15 +55,26 @@ class PublicController extends Controller
 
     }
 
-    public function index(){
+    public function index(Request $r){
 
         $intro = get_option('site_intro');
         $menu = Post::where('type','nav_menu_item')->get();
 
         if($intro == 'posts')
         {
-            $posts = Post::where('type','post')->where('status',1)->orderBy('id','desc')->get();
-            return view('Public.Posts.posts',compact('posts','menu'));
+            $page = $r->page ? ($r->page-1)*12 : 0;
+            $posts = Post::where('type','post')
+            ->where('status',1)
+            ->offset($page)
+            ->limit(12)
+            ->orderBy('id','desc')
+            ->get();
+            if($posts->count()>0){
+                return view('Public.Posts.posts',compact('posts','menu'));
+            }
+            else{
+                return abort(404);
+            }
         }
 
         if($intro == 'post'){
