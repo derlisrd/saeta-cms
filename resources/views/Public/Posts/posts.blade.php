@@ -59,6 +59,24 @@
         </div>
         @endforeach
     </div>
+    <div class="d-flex justify-content-center">
+        <nav>
+            <ul class="pagination">
+                <li class="page-item">
+                    @if ($prevPage)
+                        <a class="page-link" href="{{ route('public.index.paginate', $prevPage) }}" rel="prev"
+                            aria-label="« Previous">‹Anterior</a>
+                    @endif
+                </li>
+                <li class="page-item">
+                    @if ($nextPage)
+                        <a class="page-link" href="{{ route('public.index.paginate', $nextPage) }}" rel="next"
+                            aria-label="Next »">Siguiente›</a>
+                    @endif
+                </li>
+            </ul>
+        </nav>
+    </div>
 </div>
 
 
