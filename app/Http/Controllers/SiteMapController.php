@@ -93,7 +93,7 @@ class SiteMapController extends Controller
 
         foreach ($pages as $page) {
             $this->siteMap->add(
-                Url::create($page->slug)
+                Url::create("/page/$page->slug")
                     ->lastUpdate($page->updated_at->format('Y-m-d'))
                     ->frequency('monthly')
                     ->priority('0.8')
