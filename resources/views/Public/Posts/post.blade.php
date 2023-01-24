@@ -3,6 +3,8 @@
 
 @section('Title',$post->title)
 
+@section('description',$post->description)
+
 @section('metas')
 
 {!! htmlScriptTagJsApi(['lang'=>'es']) !!}

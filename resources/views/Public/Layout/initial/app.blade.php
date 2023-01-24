@@ -3,7 +3,6 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
         <meta name="author" content="" />
         <title>@yield('Title',get_option('site_name'))</title>
         <link rel="icon" type="image/x-icon" href="{{ get_option('site_favicon') }}" />
