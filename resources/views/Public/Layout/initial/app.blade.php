@@ -19,6 +19,14 @@
         <link rel="canonical" href="@yield('canonical',URL(''))" />
         @yield('metas')
         <meta name="csrf-token" content="{{ csrf_token() }}">
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-BY3KR284N5"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-BY3KR284N5');
+        </script>
     </head>
     <body>
         <!-- Navigation-->
