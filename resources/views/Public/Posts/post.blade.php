@@ -1,9 +1,11 @@
 @extends(template_path('app'))
 
 
-@section('Title',$post->title)
 
+@section('Title',$post->title)
 @section('description',$post->description)
+@section('site_cover',$post->images->url)
+@section('network_site_description',$post->description)
 
 @section('metas')
 

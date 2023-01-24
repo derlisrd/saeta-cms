@@ -11,6 +11,19 @@
         <!-- Google fonts-->
 
         <meta name="description" content="@yield('description',get_option('site_description'))" />
+
+
+
+<meta property="og:locale" content="es_ES"/>
+<meta property="og:title" content="@yield('site_title',get_option('site_name'))"/>
+<meta property="og:url" content="{{ request()->url() }}"/>
+<meta property="og:image" content="@yield('site_cover',get_option('site_cover'))"/>
+ <meta property="og:type"   content="website" />
+<meta property="og:site_name" content="{{ get_option('site_name') }}"/>
+<meta property="og:description" content="@yield('network_site_description',get_option('site_description'))"/>
+
+
+
         <link href="{{ public_assets('public.css') }}" rel="stylesheet">
         <link href="{{ public_assets('wp.css') }}" rel="stylesheet">
         <link rel="canonical" href="@yield('canonical',URL(''))" />
