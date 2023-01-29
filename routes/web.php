@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdsController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ConfigController;
@@ -55,6 +56,14 @@ Route::group(['prefix'=>'admin','middleware'=>['auth']],function(){
         Route::post('/comments/{id}',[CommentController::class,'aproved'])->name('comment.aproved');
         Route::delete('/comment/{id}',[CommentController::class,'destroy'])->name('comment.delete');
     });
+
+
+    Route::get('ads',[AdsController::class,'index'])->name('ads');
+    Route::get('ads/create',[AdsController::class,'create'])->name('ads.create');
+    Route::post('ads/create',[AdsController::class,'store'])->name('ads.store');
+    Route::get('ads/edit/{id}',[AdsController::class,'edit'])->name('ads.edit');
+    Route::put('ads/edit/{id}',[AdsController::class,'update'])->name('ads.update');
+    Route::delete('ads/delete',[AdsController::class,'destroy'])->name('ads.delete');
 
     Route::get('/users',[UsersController::class,'index'])->name('users');
     Route::get('/users/create',[UsersController::class,'create'])->name('users.create');

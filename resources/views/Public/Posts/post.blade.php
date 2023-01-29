@@ -4,7 +4,7 @@
 
 @section('Title',$post->title)
 @section('description',$post->description)
-@section('site_cover',$post->images->url)
+@section('site_cover',$post->images->url ?? '')
 @section('network_site_description',$post->description)
 
 @section('metas')
@@ -50,6 +50,11 @@
 @section('postcontent')
 <article class="mb-4 article-content">
     <div class="container px-4 px-lg-5">
+
+        <div id="position_0">
+            {!! $ad->code ?? '' !!}
+        </div>
+
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
                 {!! $post->text !!}

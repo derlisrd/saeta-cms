@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ad;
 use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Config;
@@ -105,11 +106,16 @@ class PublicController extends Controller
         $menu = Post::where('type','nav_menu_item')->get();
         $post = Post::where('slug',$r->slug)->first();
 
+        $ad = Ad::where('position',1)->first();
+
         if($post){
-            return view('Public.Posts.post',compact('post','menu'));
+
+            return view('Public.Posts.post',compact('post','menu','ad'));
         }
         return abort(404);
     }
+
+
 
     public function article(Request $r){
 

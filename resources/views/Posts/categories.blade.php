@@ -16,7 +16,6 @@
         </div>
     </div>
 
-
             <table class="table table-hover">
                 <thead>
                     <tr class="table-dark">
@@ -55,8 +54,6 @@
                     </tr>
                 </tfoot>
             </table>
-
-
         </div>
 @endsection
 @section('scripts')

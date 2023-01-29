@@ -21,7 +21,7 @@
         </div>
         <div class="col-12 col-sm-6">
             <div class="form-group mt-3">
-                <input required autofocus autocomplete="off" name="title" name="title" value="{{ old('title') }}"  class="form-control" id="title"  placeholder="Título">
+                <input required autofocus autocomplete="off" name="title" value="{{ old('title') }}"  class="form-control" id="title"  placeholder="Título">
                 <small id="title" class="form-text text-muted">Ingrese el título.</small>
             </div>
         </div>

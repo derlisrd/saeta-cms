@@ -49,7 +49,7 @@
                 <a href="{{ route('users.create') }}" class="dashboard-nav-dropdown-item {{ request()->routeIs('users.create') ? 'active' : '' }}">Nuevo</a>
             </div>
         </div>
-
+        <a href="{{ route('ads') }}" class="dashboard-nav-item {{ request()->routeIs('ads*') ? 'active' : '' }}"><i class="fa fa-bullseye"></i> Ads </a>
         <a href="{{ route('menu') }}" class="dashboard-nav-item {{ request()->routeIs('menu*') ? 'active' : '' }}"><i class="fa fa-traffic-light"></i> Menu </a>
         <a href="{{ route('config') }}" class="dashboard-nav-item {{ request()->routeIs('config*') ? 'active' : '' }}"><i class="fas fa-cogs"></i> Config. </a>
         <a href="{{ route('profile') }}" class="dashboard-nav-item {{ request()->routeIs('profile*') ? 'active' : '' }}"><i class="fas fa-user"></i> Perfil </a>
