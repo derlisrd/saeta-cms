@@ -38,7 +38,8 @@
                     <div class="form-group">
                         <label for="position" class="form-label mt-3">Posición</label>
                         <select class="form-select" id="position" name="position">
-                          <option value="1">En artículo top header</option>
+                          <option value="1">En artículo top largo</option>
+                          <option value="2">En artículo bottom largo</option>
                           <option value="3">Página inicial abajo</option>
                         </select>
                     </div>
