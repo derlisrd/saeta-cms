@@ -11265,3 +11265,7 @@ header.masthead .site-heading .h1 {
 .bg-masterhead{
     background-color: #00404eb3;
 }
+#position_0 {
+    margin: 0 auto 20px;
+    text-align: center;
+}
