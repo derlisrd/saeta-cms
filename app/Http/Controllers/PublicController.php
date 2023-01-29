@@ -56,6 +56,9 @@ class PublicController extends Controller
 
     }
 
+
+
+
     public function index(Request $r){
 
         $intro = get_option('site_intro');
@@ -66,7 +69,7 @@ class PublicController extends Controller
             $limit = 12;
             $currentPage = $r->page ?? 1;
             $page = $r->page ? (($r->page-1) * $limit) : 0;
-
+            $ad = Ad::inRandomOrder()->where('position',3)->first();
             $posts = Post::where('type','post')
             ->where('status',1)
             ->offset($page)
@@ -79,7 +82,7 @@ class PublicController extends Controller
             if($posts->count()>0){
                 $nextPage = $currentPage<$pages ? $currentPage + 1 : null;
                 $prevPage = ($currentPage - 1)>0 ? $currentPage - 1 : null;
-                return view('Public.Posts.posts',compact('posts','menu','nextPage','prevPage'));
+                return view('Public.Posts.posts',compact('posts','menu','nextPage','prevPage','ad'));
             }
             else{
                 return abort(404);
@@ -117,11 +120,12 @@ class PublicController extends Controller
 
 
 
+
+
     public function article(Request $r){
 
         $menu = Post::where('type','nav_menu_item')->get();
         $post = Post::findOrFail($r->id);
-
 
         if($post){
             return view('Public.Posts.post',compact('post','menu'));
