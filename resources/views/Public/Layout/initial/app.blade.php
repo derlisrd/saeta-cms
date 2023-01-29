@@ -81,5 +81,17 @@
         @yield('scripts')
 
 
+        <script type="text/javascript">
+            atOptions = {
+                'key' : 'db44f994c832abe1de88ca5d4c8662d5',
+                'format' : 'iframe',
+                'height' : 250,
+                'width' : 300,
+                'params' : {}
+            };
+            document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://www.effectivecreativeformat.com/db44f994c832abe1de88ca5d4c8662d5/invoke.js"></scr' + 'ipt>');
+        </script>
+
+
     </body>
 </html>
