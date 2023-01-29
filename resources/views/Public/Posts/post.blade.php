@@ -115,6 +115,20 @@
     @if (session('comentado'))
         alert('Gracias por dejar tu comentario. En breve será moderado');
     @endif
-
 </script>
+
+@section('scripts')
+
+<script type="text/javascript">
+	atOptions = {
+		'key' : '456da90a1e497f14e158c0b72f1ce664',
+		'format' : 'iframe',
+		'height' : 90,
+		'width' : 728,
+		'params' : {}
+	};
+	document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://www.effectivecreativeformat.com/456da90a1e497f14e158c0b72f1ce664/invoke.js"></scr' + 'ipt>');
+</script>
+@endsection
+
 @endsection
