@@ -21,6 +21,7 @@ class CreateAdsTable extends Migration
             $table->integer('height')->nullable();
             $table->integer('width')->nullable();
             $table->text('code');
+            $table->boolean('movil')->default(0);
             $table->timestamps();
         });
     }

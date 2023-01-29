@@ -34,7 +34,13 @@
                         <textarea class="form-control" id="code" name="code" rows="5"></textarea>
                     </div>
                 </div>
-                <div class="col-12 col-sm-6 col-md-4">
+                <div class="col-12 col-sm-6 col-md-3">
+                    <div class="form-check form-switch mt-4">
+                        <input class="form-check-input cursor-pointer" name="movil" type="checkbox" id="movil" >
+                        <label class="form-check-label cursor-pointer" for="movil">Es para movil</label>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-3">
                     <div class="form-group">
                         <label for="position" class="form-label mt-3">Posición</label>
                         <select class="form-select" id="position" name="position">
@@ -44,7 +50,7 @@
                         </select>
                     </div>
                 </div>
-                <div class="col-12 col-sm-6 col-md-4">
+                <div class="col-12 col-sm-6 col-md-3">
                     <div class="form-group">
                         <div class="form-floating mt-5">
                             <input class="form-control" id="height" value="{{ old('height') }}"  name="height" placeholder="height">
@@ -52,7 +58,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-sm-6 col-md-4">
+                <div class="col-12 col-sm-6 col-md-3">
                     <div class="form-group">
                         <div class="form-floating mt-5">
                             <input class="form-control" id="width" value="{{ old('width') }}"  name="width" placeholder="width">

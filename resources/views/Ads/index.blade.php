@@ -17,6 +17,7 @@
                     <th>ID</th>
                     <th scope="row">Nombre</th>
                     <td>Posición</td>
+                    <td>Plataforma</td>
                     <td>Acciones</td>
                 </tr>
             </thead>
@@ -26,6 +27,7 @@
                     <td>{{ $c->id }}</td>
                     <td>{{ $c->name }} </td>
                     <td>{{ $c->position }}</td>
+                    <td>@if($c->movil) Movil @else Escritorio @endif </td>
                     <td>
                         <a href="{{ route('ads.edit',$c->id) }}" class="btn btn-outline-info">Editar</a>
                         <form action="{{ route('ads.delete',$c->id) }}" class="d-inline formulario-eliminar" method="post" >

@@ -33,7 +33,8 @@ class AdsController extends Controller
             'position'=>$r->position,
             'code'=>$r->code,
             'height'=>$r->height,
-            'width'=>$r->width
+            'width'=>$r->width,
+            'movil'=>$r->movil ? true : false
         ];
 
         Ad::create($datos);
