@@ -100,9 +100,11 @@ class PublicController extends Controller
             return abort(404);
         }
 
-
-
     }
+
+
+
+
 
     public function post(Request $r){
 
@@ -113,7 +115,16 @@ class PublicController extends Controller
 
         if($post){
 
-            return view('Public.Posts.post',compact('post','menu','ad'));
+            $related = Post::where('type','post')
+            ->where('status',1)
+            ->where('category_id',$post->category_id)
+            ->where([['id','<>',$post->id]])
+            ->limit(3)
+            ->get();
+
+
+
+            return view('Public.Posts.post',compact('post','menu','ad','related'));
         }
         return abort(404);
     }

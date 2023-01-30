@@ -63,6 +63,33 @@
     </div>
 </article>
 
+<div class="container mb-5">
+    <div class="row">
+    <h2>Lea también</h2>
+    @foreach ($related as $r)
+            <div class="col-12 col-sm-6 col-lg-4 mb-5">
+                <div class="post-entry d-block small-post-entry-v">
+                    @if($r->image_id)
+                    <div class="thumbnail p-1 border rounded">
+                        <a href="{{ route('public.post',$r->slug) }}">
+                            <img src="{{ $r->images->url }}" alt="Image" class="img-fluid">
+                        </a>
+                    </div>
+                    @endif
+                    <div class="content">
+                        <h2 class="heading my-2"><a href="{{ route('public.post',$r->slug) }}">{{ $r->title }}</a></h2>
+                        <a href="{{ route('public.post',$r->slug) }}" class="post-author d-flex align-items-center">
+                            <div class="author-pic">
+                                {{-- <img src="images/person_1.jpg" alt="Image"> --}}
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+    @endforeach
+        </div>
+</div>
+
     @if($post->comment_status)
         <div class="container-md mb-3 p-3">
             <h4>Comentarios: </h4>
