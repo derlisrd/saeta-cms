@@ -17,6 +17,7 @@
                     <th>ID</th>
                     <th scope="row">Nombre</th>
                     <td>Posición</td>
+                    <td>Dimensiones</td>
                     <td>Plataforma</td>
                     <td>Acciones</td>
                 </tr>
@@ -27,6 +28,7 @@
                     <td>{{ $c->id }}</td>
                     <td>{{ $c->name }} </td>
                     <td>{{ $c->position }}</td>
+                    <td>{{ $c->width . 'x' .$c->height }}</td>
                     <td>@if($c->movil) Movil @else Escritorio @endif </td>
                     <td>
                         <a href="{{ route('ads.edit',$c->id) }}" class="btn btn-outline-info">Editar</a>
@@ -44,3 +46,26 @@
 </div>
 
 @endsection
+
+@section('scripts')
+    <script>
+        @if (session('send_trash'))
+            Swal.fire('Borrado!','Ha sido borrado con exito.','success')
+        @endif
+    </script>
+    <script>
+        $('.formulario-eliminar').submit(function(e){
+            e.preventDefault();
+            Swal.fire({
+            title: 'Borrar',
+            text:'Desea borrar este ad?',
+            showCancelButton: true,
+            }).then((result) => {
+            if (result.isConfirmed) {
+                this.submit();
+            }
+            })
+        });
+    </script>
+@endsection
+
