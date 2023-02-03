@@ -26,7 +26,7 @@
 
         <link href="{{ public_assets('public.css') }}" rel="stylesheet">
         <link href="{{ public_assets('wp.css') }}" rel="stylesheet">
-        <link rel="canonical" href="@yield('canonical',URL(''))" />
+        <link rel="canonical" href="{{ url()->current() }}" />
         @yield('metas')
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-BY3KR284N5"></script>

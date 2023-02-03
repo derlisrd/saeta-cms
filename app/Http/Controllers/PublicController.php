@@ -19,9 +19,9 @@ class PublicController extends Controller
         if(Auth::user()){
             $menu = Post::where('type','nav_menu_item')->get();
             $post = Post::findOrFail($id);
-
+            $related = [];
             if($post){
-                return view('Public.Posts.post',compact('post','menu'));
+                return view('Public.Posts.post',compact('post','menu','related'));
             }
 
         }
