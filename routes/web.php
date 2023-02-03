@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/',[PublicController::class,'index'])->name('public.index');
+Route::any('/',[PublicController::class,'index'])->name('public.index');
 Route::get('paginate/{page}',[PublicController::class,'index'])->name('public.index.paginate');
 
 Route::get('/article/{id}',[PublicController::class,'article'])->name('public.article');
