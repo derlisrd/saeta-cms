@@ -81,7 +81,7 @@ class PublicController extends Controller
             $page = $r->page ? (($r->page-1) * $limit) : 0;
             $ads = Ad::inRandomOrder()->where('position',3)->first();
 
-            dd($ads);
+
             if($this->is_mobile()){
                 $ad = $ads->code_mobile;
             }
@@ -129,7 +129,15 @@ class PublicController extends Controller
         $menu = Post::where('type','nav_menu_item')->get();
         $post = Post::where('slug',$r->slug)->first();
 
-        $ad = Ad::where('position',1)->first();
+        $ads = Ad::inRandomOrder()->where('position',1)->first();
+
+
+            if($this->is_mobile()){
+                $ad = $ads->code_mobile;
+            }
+            else{
+                $ad= $ads->code;
+            }
 
         if($post){
 
