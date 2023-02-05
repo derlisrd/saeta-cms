@@ -35,6 +35,12 @@
                         <textarea class="form-control" id="code" name="code" rows="5">{{ old('code') ?? $ad->code }}</textarea>
                     </div>
                 </div>
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="code_mobile" class="form-label mt-4">Codigo</label>
+                        <textarea class="form-control" id="code_mobile" name="code_mobile" rows="5">{{ old('code_mobile') ?? $ad->code_mobile }}</textarea>
+                    </div>
+                </div>
                 <div class="col-12 col-sm-6 col-md-3">
                     <div class="form-check form-switch mt-4">
                         <input class="form-check-input cursor-pointer" name="movil" @if ($ad->movil)

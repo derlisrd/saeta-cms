@@ -10,7 +10,7 @@ class Ad extends Model
     use HasFactory;
 
     protected $fillable = [
-        'position','name','height','width','code','movil'
+        'position','name','height','width','code','movil','code_mobile'
     ];
 
 

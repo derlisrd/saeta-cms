@@ -22,7 +22,6 @@ class AdsController extends Controller
         $r->validate([
             'name'=> ['required'],
             'position'=>'required',
-            'code'=>['required'],
             'height'=>['numeric'],
             'width'=>['numeric'],
         ]);
@@ -32,6 +31,7 @@ class AdsController extends Controller
             'name'=>$r->name,
             'position'=>$r->position,
             'code'=>$r->code,
+            'code_mobile'=>$r->code_mobile,
             'height'=>$r->height,
             'width'=>$r->width,
             'movil'=>$r->movil ? true : false
@@ -55,7 +55,7 @@ class AdsController extends Controller
         $r->validate([
             'name'=> ['required'],
             'position'=>'required',
-            'code'=>['required'],
+
             'height'=>['numeric'],
             'width'=>['numeric'],
         ]);
@@ -65,6 +65,7 @@ class AdsController extends Controller
             'name'=>$r->name,
             'position'=>$r->position,
             'code'=>$r->code,
+            'code_mobile'=>$r->code_mobile,
             'height'=>$r->height,
             'width'=>$r->width,
             'movil'=>$r->movil ? true : false
@@ -79,7 +80,7 @@ class AdsController extends Controller
         $ad = Ad::find($id);
         $ad->delete();
 
-        return redirect()->route('ads')->with('send_trash',true);
+        return redirect()->route('ads')->with('deleted',true);
 
     }
 
