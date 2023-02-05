@@ -83,10 +83,10 @@ class PublicController extends Controller
 
 
             if($this->is_mobile()){
-                $ad = $ads->code_mobile;
+                $ad = $ads->code_mobile ?? null;
             }
             else{
-                $ad= $ads->code;
+                $ad= $ads->code ?? null;
             }
             $posts = Post::where('type','post')
             ->where('status',1)
@@ -133,10 +133,10 @@ class PublicController extends Controller
 
 
             if($this->is_mobile()){
-                $ad = $ads->code_mobile;
+                $ad = $ads->code_mobile ?? null;
             }
             else{
-                $ad= $ads->code;
+                $ad= $ads->code ?? null;
             }
 
         if($post){
