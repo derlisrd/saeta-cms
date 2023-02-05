@@ -62,7 +62,7 @@
         @endforeach
         <div class="col-12">
             <div id="position_3">
-                {!! $ad->code ?? '' !!}
+                {!! $ad ?? '' !!}
             </div>
         </div>
     </div>
