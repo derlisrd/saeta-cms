@@ -80,6 +80,8 @@ class PublicController extends Controller
             $currentPage = $r->page ?? 1;
             $page = $r->page ? (($r->page-1) * $limit) : 0;
             $ads = Ad::inRandomOrder()->where('position',3)->first();
+
+            dd($ads);
             if($this->is_mobile()){
                 $ad = $ads->code_mobile;
             }
