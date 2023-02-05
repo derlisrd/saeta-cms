@@ -5,6 +5,7 @@
 @section('Title',$post->title)
 @section('description',$post->description)
 @section('site_cover',$post->images->url ?? '')
+@section('site_title',$post->title)
 @section('network_site_description',$post->description)
 
 @section('metas')
