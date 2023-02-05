@@ -79,12 +79,12 @@ class PublicController extends Controller
             $limit = 12;
             $currentPage = $r->page ?? 1;
             $page = $r->page ? (($r->page-1) * $limit) : 0;
-            $ad = Ad::inRandomOrder()->where('position',3)->first();
+            $ads = Ad::inRandomOrder()->where('position',3)->first();
             if($this->is_mobile()){
-                $ad = $ad->code_mobile;
+                $ad = $ads->code_mobile;
             }
             else{
-                $ad= $ad->code;
+                $ad= $ads->code;
             }
             $posts = Post::where('type','post')
             ->where('status',1)
