@@ -97,9 +97,12 @@ class PublicController extends Controller
 
             $count = Post::where('type','post')->where('status',1)->count();
             $pages = round( $count / $limit);
+
             if($posts->count()>0){
-                $nextPage = $currentPage<$pages ? $currentPage + 1 : null;
+
+                $nextPage = $currentPage<=$pages ? $currentPage + 1 : null;
                 $prevPage = ($currentPage - 1)>0 ? $currentPage - 1 : null;
+
                 return view('Public.Posts.posts',compact('posts','menu','nextPage','prevPage','ad'));
             }
             else{
