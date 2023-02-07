@@ -20,10 +20,10 @@ class DatabaseSeeder extends Seeder
         User::create([
             'name'=>'Administrador',
             'username'=>'admin',
-            'email'=>env('USER_INITIAL'),
+            'email'=>env('USER_INITIAL','example@example.com'),
             'type'=>0,
             'active'=>true,
-            'password'=>Hash::make(env('PASS_INITIAL'))
+            'password'=>Hash::make(env('PASS_INITIAL','admin'))
         ]);
         Category::create([
             'title'=>'Sin categoría',
