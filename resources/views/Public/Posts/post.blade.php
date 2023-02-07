@@ -61,8 +61,15 @@
                 {!! $post->text !!}
             </div>
         </div>
+
+        <div id="position_0">
+            {!! $ad ?? '' !!}
+        </div>
+
+
     </div>
 </article>
+
 
 <div class="container mb-5">
     <div class="row">
