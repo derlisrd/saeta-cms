@@ -10,6 +10,7 @@ use App\Http\Controllers\MenuController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PublicController;
+use App\Http\Controllers\RunnerController;
 use App\Http\Controllers\SiteMapController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
@@ -86,6 +87,8 @@ Route::group(['prefix'=>'admin','middleware'=>['auth']],function(){
     Route::post('/profile/pass',[ProfileController::class,'pass'])->name('profile.save.pass');
 
     Route::get("logout",[LoginController::class,'logout'])->name("logout");
+
+    Route::get('run',[RunnerController::class,'run']);
 });
 
 
