@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Images;
 use App\Models\Post;
+use App\Models\PostsVisita;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -152,6 +153,8 @@ class PostsController extends Controller
 
 
         $post = Post::create($datos);
+
+        PostsVisita::create(['visitas'=>0,'post_id'=>$post->id]);
 
         return redirect()->route('posts.edit',$post->id)->with('new_post',true);
     }

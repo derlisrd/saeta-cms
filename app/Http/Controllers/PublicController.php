@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Config;
 use App\Models\Post;
+use App\Models\PostsVisita;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -151,7 +152,9 @@ class PublicController extends Controller
             ->limit(3)
             ->get();
 
-
+            $visitas = PostsVisita::where('post_id',$post->id);
+            $visitas->visita += 1;
+            $visitas->update();
 
             return view('Public.Posts.post',compact('post','menu','ad','related'));
         }
