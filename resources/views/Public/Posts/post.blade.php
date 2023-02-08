@@ -80,7 +80,7 @@
                     @if($r->image_id)
                     <div class="thumbnail p-1 border rounded">
                         <a href="{{ route('public.post',$r->slug) }}">
-                            <img src="{{ $r->images->url }}" alt="Image" class="img-fluid">
+                            <img src="{{ $r->images->url }}" loading="lazy" alt="Image" class="img-fluid">
                         </a>
                     </div>
                     @endif
