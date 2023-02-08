@@ -153,7 +153,7 @@ class PublicController extends Controller
             ->get();
 
             $visitas = PostsVisita::where('post_id',$post->id);
-            $visitas->visita += 1;
+            $visitas->visitas += 1;
             $visitas->update();
 
             return view('Public.Posts.post',compact('post','menu','ad','related'));
