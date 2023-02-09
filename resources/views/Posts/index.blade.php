@@ -54,17 +54,6 @@
                     </tr>
                     @endforeach
                 </tbody>
-                <tfoot>
-                    <tr class="table-dark">
-                        <th>ID</th>
-                        <th >Título</th>
-                        <td>Categoría</td>
-                        <td>Tipo</td>
-                        <td>Status</td>
-                        <td>Autor</td>
-                        <td scope="row">Acciones</td>
-                    </tr>
-                </tfoot>
             </table>
 
 </div>
