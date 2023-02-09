@@ -25,6 +25,7 @@
                         <th>ID</th>
                         <th >Título</th>
                         <td>Categoría</td>
+                        <td>Visitas</td>
                         <td>Tipo</td>
                         <td>Status</td>
                         <td>Autor</td>
@@ -37,6 +38,7 @@
                         <td>{{ $p->id }}</td>
                         <td>{{ $p->title }} </td>
                         <td>{{ $p->category->title }}</td>
+                        <td>{{ $p->visits->visitas }} </td>
                         <td>{{ $p->type }} </td>
                         <td>{{ $p->status == '1' ? 'Publicado' : 'No publicado' }} </td>
                         <td>{{ $p->author->name }}</td>

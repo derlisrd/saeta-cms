@@ -26,4 +26,8 @@ class Post extends Model
         return $this->hasMany(Comment::class,'post_id');
     }
 
+    public function visits(){
+        return $this->hasOne(PostsVisita::class,'post_id');
+    }
+
 }
