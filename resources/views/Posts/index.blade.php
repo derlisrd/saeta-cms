@@ -38,7 +38,7 @@
                         <td>{{ $p->id }}</td>
                         <td>{{ $p->title }} </td>
                         <td>{{ $p->category->title }}</td>
-                        <td>{{ $p->visits->visitas }} </td>
+                        <td>{{ $p->visits->visitas ?? 0 }} </td>
                         <td>{{ $p->type }} </td>
                         <td>{{ $p->status == '1' ? 'Publicado' : 'No publicado' }} </td>
                         <td>{{ $p->author->name }}</td>
