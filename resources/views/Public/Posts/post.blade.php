@@ -10,7 +10,7 @@
 
 @section('metas')
 
-{!! htmlScriptTagJsApi(['lang'=>'es']) !!}
+{{-- {!! htmlScriptTagJsApi(['lang'=>'es']) !!} --}}
 
 @endsection
 
