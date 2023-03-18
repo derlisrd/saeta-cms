@@ -80,6 +80,7 @@ class PublicController extends Controller
             $limit = 12;
             $currentPage = $r->page ?? 1;
             $page = $r->page ? (($r->page-1) * $limit) : 0;
+
             $ads = Ad::inRandomOrder()->where('position',3)->first();
 
 
@@ -101,7 +102,7 @@ class PublicController extends Controller
 
             if($posts->count()>0){
 
-                $nextPage = $currentPage<=$pages ? $currentPage + 1 : null;
+                $nextPage = $currentPage<$pages ? $currentPage + 1 : null;
                 $prevPage = ($currentPage - 1)>0 ? $currentPage - 1 : null;
 
                 return view('Public.Posts.posts',compact('posts','menu','nextPage','prevPage','ad'));
