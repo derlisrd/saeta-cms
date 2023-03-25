@@ -1,7 +1,7 @@
 @extends(template_path('app'))
 
 
-@section('Title',get_option('site_name'))
+@section('Title',get_option('site_title'))
 
 @section('header')
 

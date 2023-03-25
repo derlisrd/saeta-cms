@@ -3,7 +3,7 @@
     <header>
         <a href="#" class="menu-toggle"><i class="fas fa-bars"></i></a>
         <a href="#" class="brand-logo">
-            <i class="fa fa-rocket"></i> <small class="text-muted">CMS </small>
+            <i class="fa fa-rocket"></i> <small class="text-muted">CMS</small>
         </a>
     </header>
 
