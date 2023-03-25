@@ -20,13 +20,19 @@
         </div>
         @endif
     </div>
-    <div class="col-12 col-md-6">
+    <div class="col-12 col-md-4">
         <div class="form-group mt-2">
             <input autofocus autocomplete="off" class="form-control" name="site_name" required value="{{ $site_name }}" />
             <small class="form-text text-muted">Nombre del sitio</small>
         </div>
     </div>
-    <div class="col-12 col-md-6">
+    <div class="col-12 col-md-4">
+        <div class="form-group mt-2">
+            <input autofocus autocomplete="off" class="form-control" name="site_title" required value="{{ $site_title }}" />
+            <small class="form-text text-muted">Titulo de sitio</small>
+        </div>
+    </div>
+    <div class="col-12 col-md-4">
         <div class="form-group mt-2">
             <input class="form-control" name="site_description" required value="{{ $site_description }}" />
             <small class="form-text text-muted">Descripción del sitio</small>

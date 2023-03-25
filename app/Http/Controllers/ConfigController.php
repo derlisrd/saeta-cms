@@ -18,6 +18,7 @@ class ConfigController extends Controller
         $sf = Config::where('option','site_favicon')->first();
         $slogo = Config::where('option','site_logo')->first();
         $si = Config::where('option','site_intro')->first();
+        $st = Config::where('option','site_title')->first();
         $shome_post_id = Config::where('option','site_home_post_id')->first();
 
         $datas = [
@@ -28,7 +29,8 @@ class ConfigController extends Controller
         'site_description' => $sd->value,
         'site_copyright' => $sc->value,
         'site_logo' => $slogo->value ?? '',
-        'site_home_post_id' => $shome_post_id->value
+        'site_home_post_id' => $shome_post_id->value,
+        'site_title'=> $st->value ?? ''
         ];
 
         return view('Config.index',$datas);
