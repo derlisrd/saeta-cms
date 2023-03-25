@@ -70,6 +70,12 @@ class ConfigController extends Controller
 
         DB::table('configs')
         ->updateOrInsert(
+            ['option' => 'site_title'],
+            ['value' => $r->site_title]
+        );
+
+        DB::table('configs')
+        ->updateOrInsert(
             ['option' => 'site_logo'],
             ['value' => $r->site_logo]
         );
