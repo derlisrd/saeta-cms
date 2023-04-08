@@ -9,9 +9,9 @@
 <header class="masthead" style=" @if(get_option('site_cover')) background-image: url('{{ get_option('site_cover') }}') @endif">
     <div class="container position-relative px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
-            <div class="col-md-10 col-lg-8 col-xl-7">
+            <div class="col-12">
                 <div class="site-heading text-dark">
-                    <h1>{{ get_option('site_name') }}</h1>
+                    <h2 >{{ get_option('site_name') }}</h2>
                     <span class="subheading">{{ get_option('site_description')  }}</span>
                 </div>
             </div>
