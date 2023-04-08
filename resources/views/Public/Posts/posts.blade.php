@@ -30,12 +30,12 @@
 <div class="container mb-5">
     <div class="row">
         @foreach ($posts as $post)
-            <div class="col-12 col-sm-6 col-lg-4 mb-5">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-5">
                 <div class="post-entry d-block small-post-entry-v">
                     @if($post->image_id)
                     <div class="thumbnail p-1 border rounded">
                         <a href="{{ route('public.post',$post->slug) }}">
-                            <img src="{{ $post->images->url }}" alt="{{ $post->title }}" loading="lazy" class="img-fluid lazyload">
+                            <img src="{{ $post->images->url }}" alt="{{ $post->title }}" style="object-fit: cover; max-height:190px" loading="lazy" class="w-100 object-fit-cover border rounded lazyload">
                         </a>
                     </div>
                     @endif
